@@ -1,0 +1,90 @@
+<app-after-login-header></app-after-login-header>
+<div class="account-head-top">
+    <div class="container align-center">
+        <div class="">
+            <h2 class="font-family-m fontweight-400 fontsize-30 color-white mb-11 mt-11">Kommande Bokningar</h2>
+        </div>
+    </div>
+</div>
+
+<section class="account-sec-3 pt-30 pb-50 pl-15 pr-15">
+    <div class="container">
+        <div class="relative pl-0 pr-0">
+            <div class="align-center border-b2 " fxLayoutAlign="space-between">
+                <p routerLink="/offer" style="cursor: pointer;" class="fontsize-16 color-dblue fontweight-400 mt-0 mb-30">
+                <mat-icon matPrefix class="vertical-middle">chevron_left</mat-icon> Tillbaka till kalendervyn</p>
+            </div>
+        </div>
+        <div class="pt-30 booking-table-parent" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayoutAlign="space-between">
+            <div class="booking-table" fxLayout="column" fxLayoutAlign="start start"  fxFlex.gt-sm="100" fxFlex.gt-xs="100">
+                <div class="w-100 mb-50">
+                    <div class="relative">
+
+                        <div class=" border-b2" fxLayout="row" fxLayoutAlign="space-between center">
+                            <div class="fontsize-15 color-mgray fontweight-600 width150 align-left" fxLayout="column">{{ starttime | date: "MMMM yyy" }} </div>
+                            <mat-form-field style="width: 175px;padding:0px;">
+                                <mat-select [(value)]="selected" (selectionChange)="selected = $event.value">
+                                    <mat-option value="current">Nuvarande bokning</mat-option>
+                                    <mat-option value="futur">Futur-bokning</mat-option>
+                                    <mat-option value="past">Tidigare bokning</mat-option>
+                                </mat-select>
+
+                            </mat-form-field>
+                        </div>
+                        <div *ngIf="selected=='futur'">
+                        <div  *ngFor="let otherBooking of futurBooking" class="mt-15" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+                            <div class="mb-5 fontsize-15 color-dgray fontweight-400 width150 align-left" fxLayout="column"><span class="capitalize">{{ otherBooking.first_name + ' ' + otherBooking.last_name }}</span></div>
+                            <div class="mb-5 fontsize-15 color-dgray fontweight-400 width270 align-left" fxLayout="column"><span>{{ otherBooking.starttime | date: "EEEE, d MMMM" }} at {{ otherBooking.starttime | date: "HH:mm" }}</span></div>
+                            <div class="mb-5 fontsize-15 color-dgray fontweight-400 width140 align-left" fxLayout="column"><span>{{ otherBooking.hours }} timmar</span></div>
+                            <!-- Av Ren -->
+                            <div *ngIf="otherBooking.booking_type == 'once'" class="mb-5 fontsize-15 color-dgray fontweight-400  align-left" fxLayout="column"><span>En gång </span></div>
+                            <div *ngIf="otherBooking.booking_type == 'byweekly'" class="mb-5 fontsize-15 color-dgray fontweight-400  align-left" fxLayout="column"><span>Varannan vecka </span></div>
+                            <div *ngIf="otherBooking.booking_type == 'weekly'" class="mb-5 fontsize-15 color-dgray fontweight-400  align-left" fxLayout="column"><span class="capitalize">Varje vecka </span></div>
+                            <div *ngIf="otherBooking.booking_type == 'monthly'" class="mb-5 fontsize-15 color-dgray fontweight-400  align-left" fxLayout="column"><span class="capitalize">Monthly </span></div>
+
+                            <div class="mb-5 fontsize-15 color-dblue fontweight-600 width170 align-right" fxLayout="column"><span><span (click)="viewBooking(otherBooking.id, otherBooking.booking_id)" style="cursor: pointer;"> Visa detaljer </span></span></div>
+                        </div>
+                        </div>
+
+
+                        <div *ngIf="selected=='current'">
+                        <div *ngFor="let otherBooking of currentBooking" class="mt-15" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+                                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width150 align-left" fxLayout="column"><span class="capitalize">{{ otherBooking.first_name + ' ' + otherBooking.last_name }}</span></div>
+                                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width270 align-left" fxLayout="column"><span>{{ otherBooking.starttime | date: "EEEE, d MMMM" }} at {{ otherBooking.starttime | date: "HH:mm" }}</span></div>
+                                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width140 align-left" fxLayout="column"><span>{{ otherBooking.hours }} hours</span></div>
+
+                                <div *ngIf="otherBooking.booking_type == 'once'" class="mb-5 fontsize-15 color-dgray fontweight-400  align-left" fxLayout="column"><span>One off clean </span></div>
+                                <div *ngIf="otherBooking.booking_type == 'byweekly'" class="mb-5 fontsize-15 color-dgray fontweight-400  align-left" fxLayout="column"><span>Bi Weekly off clean </span></div>
+                                <div *ngIf="otherBooking.booking_type == 'weekly'" class="mb-5 fontsize-15 color-dgray fontweight-400  align-left" fxLayout="column"><span class="capitalize">Weekly off clean </span></div>
+                                <div *ngIf="otherBooking.booking_type == 'monthly'" class="mb-5 fontsize-15 color-dgray fontweight-400  align-left" fxLayout="column"><span class="capitalize">Monthly off clean </span></div>
+
+                                <div class="mb-5 fontsize-15 color-dblue fontweight-600 width170 align-right" fxLayout="column"><span><span (click)="viewBooking(otherBooking.id, otherBooking.booking_id)" style="cursor: pointer;"> Visa detaljer </span></span></div>
+                            </div>
+                            </div>
+
+                            <div *ngIf="selected=='past'" >
+                            <div *ngFor="let otherBooking of pastBooking" class="mt-15" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+                                    <div class="mb-5 fontsize-15 color-dgray fontweight-400 width150 align-left" fxLayout="column"><span class="capitalize">{{ otherBooking.first_name + ' ' + otherBooking.last_name }}</span></div>
+                                    <div class="mb-5 fontsize-15 color-dgray fontweight-400 width270 align-left" fxLayout="column"><span>{{ otherBooking.starttime | date: "EEEE, d MMMM" }} at {{ otherBooking.starttime | date: "HH:mm" }}</span></div>
+                                    <div class="mb-5 fontsize-15 color-dgray fontweight-400 width140 align-left" fxLayout="column"><span>{{ otherBooking.hours }} hours</span></div>
+
+                                    <div *ngIf="otherBooking.booking_type == 'once'" class="mb-5 fontsize-15 color-dgray fontweight-400  align-left" fxLayout="column"><span>One off clean </span></div>
+                                    <div *ngIf="otherBooking.booking_type == 'byweekly'" class="mb-5 fontsize-15 color-dgray fontweight-400  align-left" fxLayout="column"><span>Bi Weekly off clean </span></div>
+                                    <div *ngIf="otherBooking.booking_type == 'weekly'" class="mb-5 fontsize-15 color-dgray fontweight-400  align-left" fxLayout="column"><span class="capitalize">Weekly off clean </span></div>
+                                    <div *ngIf="otherBooking.booking_type == 'monthly'" class="mb-5 fontsize-15 color-dgray fontweight-400  align-left" fxLayout="column"><span class="capitalize">Monthly off clean </span></div>
+
+                                    <div class="mb-5 fontsize-15 color-dblue fontweight-600 width170 align-right" fxLayout="column"><span><span (click)="viewBooking(otherBooking.id, otherBooking.booking_id)" style="cursor: pointer;"> Visa detaljer </span></span></div>
+                            </div>
+                            </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-after-login-footer></app-after-login-footer>
+
+

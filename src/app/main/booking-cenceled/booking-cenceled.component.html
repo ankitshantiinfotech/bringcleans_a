@@ -1,0 +1,195 @@
+<app-after-login-header></app-after-login-header>
+<div class="account-head-top">
+  <div class="container align-center">
+    <div class="">
+      <h2 class="font-family-m fontweight-400 fontsize-30 color-white mb-11 mt-11">{{ bookingDet.starttime | date: "EEEE, MMMM dd" }} </h2>
+    </div>
+  </div>
+</div>
+
+<section class="account-sec-3 pt-30 pb-50 pl-15 pr-15">
+  <div class="container">
+    <!-- <div class="align-center border-b2 ">
+            <p class="fontsize-18 color-red fontweight-600 mt-0 mb-0">Booking canceled</p>
+            <p class="color-red fontsize-16 fontweight-600 mt-0">Cacellation reason: I would like to skip this clean as it is not required</p>
+        </div> -->
+    <div class="pt-30" fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+      fxLayout.gt-lg="row" fxLayoutAlign="space-between">
+      <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="68" fxFlex.gt-md="68" fxFlex.gt-lg="68">
+        <div class="w-100 mb-20">
+          <p class="color-mgray fontsize-15 fontweight-600 border-b2 pb-10 mb-16 ">
+            <mat-icon matPrefix class="vertical-middle">date_range</mat-icon> Booking details
+          </p>
+          <div class="div convert-table">
+            <div class="mb-10" fxLayout="row" fxLayoutAlign="start start">
+              <div class="" fxLayout="column" fxFlex="30" fxFlex.gt-xs="20" fxFlex.gt-sm="16" fxFlex.gt-md="16"
+                fxFlex.gt-lg="16">
+                <span class="color-mgray fontsize-15">Cleaner</span>
+              </div>
+              <div class="" fxLayout="column" fxFlex="70" fxFlex.gt-xs="80" fxFlex.gt-sm="74" fxFlex.gt-md="74"
+                fxFlex.gt-lg="74">
+                <span class="color-dblue fontsize-15 fontweight-600">{{ bookingDet.first_name + ' ' + bookingDet.last_name }}</span>
+              </div>
+            </div>
+            <div class="mb-10" fxLayout="row" fxLayoutAlign="start start">
+              <div class="" fxLayout="column" fxFlex="30" fxFlex.gt-xs="20" fxFlex.gt-sm="16" fxFlex.gt-md="16"
+                fxFlex.gt-lg="16">
+                <span class="color-mgray fontsize-15">Date/Time</span>
+              </div>
+              <div class="" fxLayout="column" fxFlex="70" fxFlex.gt-xs="80" fxFlex.gt-sm="74" fxFlex.gt-md="74"
+                fxFlex.gt-lg="74">
+                <span class="color-mgray fontsize-15">{{ bookingDet.starttime | date: "EEEE, MMMM dd 'at' hh:mm a" }}</span>
+              </div>
+            </div>
+            <div class="mb-10" fxLayout="row" fxLayoutAlign="start start">
+              <div class="" fxLayout="column" fxFlex="30" fxFlex.gt-xs="20" fxFlex.gt-sm="16" fxFlex.gt-md="16"
+                fxFlex.gt-lg="16">
+                <span class="color-mgray fontsize-15">Duration</span>
+              </div>
+              <div class="" fxLayout="column" fxFlex="70" fxFlex.gt-xs="80" fxFlex.gt-sm="74" fxFlex.gt-md="74"
+                fxFlex.gt-lg="74">
+                <span class="color-mgray fontsize-15">{{ bookingDet.hours }}.0 hours</span>
+              </div>
+            </div>
+            <div class="mb-10" fxLayout="row" fxLayoutAlign="start start">
+              <div class="" fxLayout="column" fxFlex="30" fxFlex.gt-xs="20" fxFlex.gt-sm="16" fxFlex.gt-md="16"
+                fxFlex.gt-lg="16">
+                <span class="color-mgray fontsize-15">Booking </span>
+              </div>
+              <div class="" fxLayout="column" fxFlex="70" fxFlex.gt-xs="80" fxFlex.gt-sm="74" fxFlex.gt-md="74"
+                fxFlex.gt-lg="74">
+                <span class="color-mgray fontsize-15">{{ bookingDet.booking_type }}-off clean</span>
+              </div>
+            </div>
+            <div class="mb-10" fxLayout="row" fxLayoutAlign="start start">
+              <div class="" fxLayout="column" fxFlex="30" fxFlex.gt-xs="20" fxFlex.gt-sm="16" fxFlex.gt-md="16"
+                fxFlex.gt-lg="16">
+                <span class="color-mgray fontsize-15">Address </span>
+              </div>
+              <div class="" fxLayout="column" fxFlex="70" fxFlex.gt-xs="80" fxFlex.gt-sm="74" fxFlex.gt-md="74"
+                fxFlex.gt-lg="74">
+                <span class="color-mgray fontsize-15">{{ bookingDet.address_1 + ' ' + bookingDet.address_2 + ', ' + bookingDet.stad + ' ' + bookingDet.postcode}}
+                </span>
+              </div>
+            </div>
+            <div class="mb-10" fxLayout="row" fxLayoutAlign="start start">
+              <div class="" fxLayout="column" fxFlex="30" fxFlex.gt-xs="20" fxFlex.gt-sm="16" fxFlex.gt-md="16"
+                fxFlex.gt-lg="16">
+                <span class="color-mgray fontsize-15">Price </span>
+              </div>
+              <div class="" fxLayout="column" fxFlex="70" fxFlex.gt-xs="80" fxFlex.gt-sm="74" fxFlex.gt-md="74"
+                fxFlex.gt-lg="74">
+                <span class="color-mgray fontsize-15">{{ bookingDet.price }} kr
+                </span>
+              </div>
+            </div>
+            <div class="mb-10" fxLayout="row" fxLayoutAlign="start start">
+              <div class="" fxLayout="column" fxFlex="30" fxFlex.gt-xs="20" fxFlex.gt-sm="16" fxFlex.gt-md="16"
+                fxFlex.gt-lg="16">
+                <span class="color-mgray fontsize-15">Notes </span>
+              </div>
+              <div class="" fxLayout="column" fxFlex="70" fxFlex.gt-xs="80" fxFlex.gt-sm="74" fxFlex.gt-md="74"
+                fxFlex.gt-lg="74">
+                <span class="color-mgray fontsize-15">-
+                </span>
+              </div>
+            </div>
+          </div>
+          <p class="color-mgray fontsize-15 fontweight-600 pb-10 mb-16 mt-40">
+            <mat-icon matPrefix class="vertical-middle">payment</mat-icon> Payments
+          </p>
+          <div class="w-100">
+            <div class="relative table">
+              <div class=" border-b2" fxLayout="row" fxLayoutAlign="start start" fxLayoutAlign="">
+                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width150 align-left" fxLayout="column">Date
+                </div>
+                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width200 align-left" fxLayout="column">Method
+                </div>
+                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width140 align-left" fxLayout="column">Amount
+                </div>
+                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width140 align-left" fxLayout="column">Status
+                </div>
+              </div>
+              <div class="mt-15" fxLayout="row" fxLayoutAlign="start start" fxLayoutAlign="">
+                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width150 align-left" fxLayout="column">
+                  <span>October 28 2018</span></div>
+                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width200 align-left" fxLayout="column">
+                  <span><span class="gray-chips">debit/credit card</span></span></div>
+                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width140 align-left" fxLayout="column"><span>200
+                    kr.</span></div>
+                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width140 align-left" fxLayout="column">
+                  <span><span class="gray-chips">paid</span></span></div>
+              </div>
+              <div class="mt-15" fxLayout="row" fxLayoutAlign="start start" fxLayoutAlign="">
+                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width150 align-left" fxLayout="column">
+                  <span>October 28 2018</span></div>
+                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width200 align-left" fxLayout="column">
+                  <span><span class="gray-chips">debit/credit card</span></span></div>
+                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width140 align-left" fxLayout="column"><span>200
+                    kr.</span></div>
+                <div class="mb-5 fontsize-15 color-dgray fontweight-400 width140 align-left" fxLayout="column">
+                  <span><span class="gray-chips">paid</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="" fxLayout="row" fxLayoutAlign="start start" fxFlex.gt-xs="37" fxFlex.gt-sm="35" fxFlex.gt-md="30"
+        fxFlex.gt-lg="30">
+        <div class="bg-screen-gray1 border-radius10 w-100 align-left">
+          <div class="around-30">
+            <p class="fontsize-18 color-mgray fontweight-600 mt-0">Conversation history</p>
+            <div class="chat-parent">
+              <div class="chat-box w-100">
+                <div class="chatings-inner" fxLayout="row" fxLayoutAlign="start baseline">
+                  <div class="">
+                    <p class="fontsize-15 color-mgray align-center">20 october 2018</p>
+                    <div class="msg-receiver">
+                      <span class="color-mgray fontsize-14"><b>Michelle</b> 16:56</span>
+                      <div class="msg-box">
+                        Mauris luctus maximus.
+                      </div>
+                    </div>
+                    <div class="msg-sender">
+                      <span class="color-mgray fontsize-14">17:05</span>
+                      <div class="msg-box">
+                        Ut vitae mauris tincidunt.
+                      </div>
+                    </div>
+                    <div class="msg-receiver">
+                      <span class="color-mgray fontsize-14"><b>Michelle</b> 18:20</span>
+                      <div class="msg-box">
+                        Aenean accumsan erat vestibulum lectus sagittis rhoncus at non leo. Etiam blandit porta nibh, et
+                        mattis turpis accumsan pharetra. Aliquam mattis ac sem auctor pellentesque. Etiam nec libero nec
+                        elit eleifend semper in sed est.
+                      </div>
+                    </div>
+                    <div class="msg-sender">
+                      <span class="color-mgray fontsize-14">19:35</span>
+                      <div class="msg-box">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae mauris tincidunt.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <mat-form-field class="text-area relative">
+                <input matInput class="relative" placeholder="Enter Your Message" style="height: 37px;">
+              </mat-form-field>
+            </div>
+            <p class="color-mgray fontsize-15">Message may be reviewed by BringClean to provide
+              better assistance.</p>
+            <div class="align-center">
+              <button mat-flat-button class="bg-blue color-white mt-10 mb-0 w-100">send message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<app-after-login-footer></app-after-login-footer>

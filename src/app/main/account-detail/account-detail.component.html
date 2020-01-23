@@ -1,0 +1,151 @@
+<app-login-header></app-login-header>
+<div class="account-head-top">
+    <div class="container">
+        <div class="" fxLayout="row" fxLayoutAlign="space-between center" >
+            <div class="fontweight-600 account-bg active" >
+                <span class="acount-count-number">1</span>
+                <span class="display-ib ml-50">DIN BOKNING</span>
+            </div>
+            <div class="fontweight-600 account-bg" >
+                <span class="acount-count-number">2</span>
+                <span class="display-ib ml-50">DINA UPPGIFTER</span>
+            </div>
+            <div class="fontweight-600 account-bg" >
+                <span class="acount-count-number">3</span>
+                <span class="display-ib ml-50">BETALNING</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="account-sec-1 pt-40 pb-50">
+    <div class="container">
+        <div class="" fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayoutAlign="space-between">
+            <div class="" fxLayout="column" fxLayoutAlign="start start"  fxFlex.gt-sm="55" fxFlex.gt-md="55" fxFlex.gt-lg="55">
+            <div class="example-form" >
+                <h2 class="color-lgray font-family-m fontweight-400 fontsize-30"> Redo att boka? Fyll i dina uppgifter</h2>
+
+                <div class="color-dblue input-border" fxLayout="column" fxLayoutAlign="start start" >
+                    <mat-form-field appearance="outline" class="">
+                        <input class="" matInput placeholder="Förnamn *" name="fname" [(ngModel)]=userDate.first (keyup.enter)="userReg()">
+                        <mat-icon matPrefix>perm_identity</mat-icon>
+                        <span class="errorVal">{{fnameErr}}</span>
+                    </mat-form-field>
+                </div>
+                <div class="color-dblue input-border" fxLayout="column" fxLayoutAlign="start start" >
+                    <mat-form-field appearance="outline" class="">
+                        <input class="" matInput placeholder="Efternamn *" name="lname" [(ngModel)]=userDate.last (keyup.enter)="userReg()">
+                        <mat-icon matPrefix>perm_identity</mat-icon>
+                        <span class="errorVal">{{lnameErr}}</span>
+                    </mat-form-field>
+                </div>
+                <div class="color-dblue input-border" fxLayout="column" fxLayoutAlign="start start" >
+                    <mat-form-field appearance="outline" class="">
+                        <input class="" matInput placeholder=" E-post *" name="email" [(ngModel)]=userDate.email (keyup.enter)="userReg()">
+                        <mat-icon matPrefix>email</mat-icon>
+                        <span class="errorVal">{{emailErr}}</span>
+                    </mat-form-field>
+                </div>
+
+                <div class="color-dblue input-border" fxLayout="column" fxLayoutAlign="start start" >
+                  <mat-form-field appearance="outline" class="">
+                      <input class="" matInput placeholder="Personnummer (ÅÅMMDD-XXXX) *" [(ngModel)]=userDate.pid name="pid" maxlength="11" (change)="checkformat($event)" (keypress)="adddash($event)" >
+                      <mat-icon matPrefix>email</mat-icon>
+                      <span class="errorVal">{{ pidErr }}</span>
+                      <span class="errorVal">{{ serverErr }} </span>
+                  </mat-form-field>
+                </div>
+
+                <div class="color-dblue input-border" fxLayout="column" fxLayoutAlign="start start" >
+                    <mat-form-field appearance="outline" class="">
+                        <input class="" matInput placeholder="Lösenord *" name="password" [(ngModel)]=userDate.password type="password" (keyup.enter)="userReg()">
+                        <mat-icon matPrefix>lock_open</mat-icon>
+                        <span class="errorVal">{{passwordErr}}</span>
+                    </mat-form-field>
+                </div>
+
+                <div class="color-dblue input-border" fxLayout="column" fxLayoutAlign="start start" >
+                    <mat-form-field appearance="outline" class="">
+                        <input class="" matInput placeholder="Bekräfta lösenord *" name="confirmpassword" [(ngModel)]=userDate.confirmpassword type="password" (keyup.enter)="userReg()">
+                        <mat-icon matPrefix>lock_open</mat-icon>
+                        <span class="errorVal">{{confirmpasswordErr}}</span>
+                    </mat-form-field>
+                </div>
+
+                <!-- <div class="color-dblue input-border" fxLayout="column" fxLayoutAlign="start start" >
+                    <mat-form-field appearance="outline" class="">
+                        <input class="" matInput placeholder="Bekräfta lösenord *" name="password" [(ngModel)]=userDate.password type="password" (keyup.enter)="userReg(userRegFrm.value)">
+                        <mat-icon matPrefix>lock_open</mat-icon>
+                        <span class="errorVal">{{passwordErr}}</span>
+                    </mat-form-field>
+                </div> -->
+
+                <div class="relative">
+                    <label class="check-parent">
+                        <input type="checkbox" [(ngModel)]="theCheckbox2" data-md-icheck />
+                        <!--  <a target="_blank" href="http://78.46.210.25:4003/terms-page" class="color-dblue">Villkoren</a> och <a href="http://78.46.210.25:4003/" target="_blank" class="color-dblue">Integritetspolicyn</a>. -->
+                        Jag accepterar <a routerLink="/terms-page" class="color-dblue">Villkoren</a> och <a routerLink="/privacy-page" class="color-dblue">Integritetspolicy</a>.
+                        <span class="checkmark"></span>
+                      </label>
+                      <span class="errorVal" style="left: 30px;">{{tncErr}}</span>
+
+                </div>
+
+                <div class="display-b align-center" style="width:100%;">
+                    <a id="register" mat-flat-button class="bg-yellow color-white mt-30 mb-0 width300" style="border-radius: 100px;font-size: 18px;" (click)="userReg()" >REGISTRERA</a>
+                    <p class="color-mgray fontsize-14">Har du redan ett konto? <a routerLink="/login" class="color-dblue"> Logga in här</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="" fxLayout="row" fxLayout="column" fxLayoutAlign="start end" fxFlex.gt-xs="37"  fxFlex.gt-sm="35" fxFlex.gt-md="30" fxFlex.gt-lg="30">
+                <div class="bg-screen-gray1 around-5 border-radius10 w-100 align-center">
+                    <h3 class="fontsize-18 color-mgray fontweight-700 mb-10">DIN BOKNING                        </h3>
+                    <div class="row" fxLayout="row" fxLayoutAlign="space-between" class="pl-20 pr-20">
+                        <p class="color-mgray fontsize-15 fontweight-400 mb-0 mt-10">Typ</p>
+                        <p class="color-mgray fontsize-15 fontweight-600 mb-0 mt-10" style="text-transform: capitalize;">{{ frequency }}</p>
+                    </div>
+                    <div class="row" fxLayout="row" fxLayoutAlign="space-between" class="pl-20 pr-20">
+                        <p class="color-mgray fontsize-15 fontweight-400 mb-0 mt-10">Antal timmar</p>
+                        <p class="color-mgray fontsize-15 fontweight-600 mb-0 mt-10">{{ duration }} timmar</p>
+                    </div>
+                    <div class="row" fxLayout="row" fxLayoutAlign="space-between" class="pl-20 pr-20">
+                        <p class="color-mgray fontsize-15 fontweight-400 mb-0 mt-10">Påbörjas</p>
+                        <p class="color-mgray fontsize-15 fontweight-600 mb-0 mt-10">{{ startdate }}</p>
+                    </div>
+                    <div class="row" fxLayout="row" fxLayoutAlign="space-between" class="pl-20 pr-20">
+                        <p class="color-mgray fontsize-15 fontweight-400 mb-0 mt-10">Tidpunkt</p>
+                        <p class="color-mgray fontsize-15 fontweight-600 mb-0 mt-10">{{ attime }}</p>
+                    </div>
+                    <div class="row" fxLayout="row" fxLayoutAlign="space-between" class="pl-20 pr-20">
+                        <p class="color-mgray fontsize-15 fontweight-400 mb-0 mt-10">Timpris efter RUT</p>
+                        <p class="color-mgray fontsize-15 fontweight-600 mb-0 mt-10">{{ priceperhour }} kr</p>
+                    </div>
+                    <div class="row" fxLayout="row" fxLayoutAlign="space-between" class="pl-20 pr-20">
+                        <p class="color-mgray fontsize-15 fontweight-400 mb-0 mt-10">Transportkostnad</p>
+                        <p class="color-mgray fontsize-15 fontweight-600 mb-0 mt-10">{{ sevicefee }} kr</p>
+                    </div>
+                    <!-- <div class="row" fxLayout="row" fxLayoutAlign="space-between" class="pl-20 pr-20">
+                        <p class="color-mgray fontsize-15 fontweight-400 mb-0 mt-10">Total cost</p>
+                        <p class="color-mgray fontsize-15 fontweight-600 mb-0 mt-10">{{ cost }} kr</p>
+                    </div> -->
+                    <div class="ml-20 mr-20 mt-10" style="border-top:1px solid #AAC6DD;"></div>
+                    <div class="row" fxLayout="row" fxLayoutAlign="space-between" class="pl-20 pr-20">
+                        <p class="color-mgray fontsize-18 fontweight-400 mb-0 mt-10">Total</p>
+                        <p class="color-mgray fontsize-18 fontweight-600 mb-0 mt-10">{{ totalcost }} kr</p>
+                    </div>
+                    <!-- <div class="row" fxLayout="row" fxLayoutAlign="" class="pl-20 pr-20 mt-10">
+                        <a href="#" class="color-dblue fontsize-14 fontweight-400">
+                            Har du en rabattkod?
+                        </a>
+                    </div> -->
+                    <div class="ml-20 mr-20 mt-10 " style="border-top:1px solid #AAC6DD;"></div>
+                    <div class="row pl-20 pr-20 mt-10 mb-30" fxLayout="row" fxLayoutAlign="">
+                        <p class="fontsize-14 color-mgray fontweight-400 align-left">Priset ovan är maxpris baserat på dina val. Den första städaren som accepterar jobbet får uppdraget och dennes timpris blir det pris som gäller vilket innebär att det kan bli billigare.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <app-after-login-footer></app-after-login-footer> -->

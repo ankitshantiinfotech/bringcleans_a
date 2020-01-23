@@ -1,0 +1,169 @@
+<app-header></app-header>
+<!-- * * * * * * * * * * * Start Header * * * * * * * * * * * -->
+ <div id="cleaner_reg" class="home-sec-1 reg-cleaner-sec1" fxLayout="row">
+     <img src="assets/images/top_blue_circle_full.png" class="top_blue_circle_full-img" alt="">
+     <img src="assets/images/top_blue_circle_half.png" class="top_blue_circle_half-img" alt="">
+    <div class="container container-70">
+        <div class="" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row">
+            <div class="mb-20 mt-20" fxLayout="column" fxLayoutAlign.gt-xs="start start" fxLayoutAlign="start start" fxLayoutAlign.gt-md="start start" fxFlex.gt-xs="100" fxFlex.gt-sm="35" fxFlex.gt-md="29" >
+                <div class="color-dblue mb-5" fxLayout="row" fxLayoutAlign="start start">
+                    <h2 class="fontsize-36 text-uppercase mt-0 mb-15" style="line-height: 40px;">STÄDFÖRFRÅGNINGAR I DITT OMRÅDE</h2>
+                </div>
+                <div class="color-dgray" fxLayout="row" fxLayoutAlign="start start"><h2 class="fontsize-20 mt-0 mb-5 fontweight-600">Registrera dig nu och bli erbjuden städförfrågningar redan idag</h2></div>
+                <div class="mb-30" fxLayout="column" fxLayoutAlign="start start" fxFill="fill" fxFlex="100">
+                    <mat-list role="list" class="ul-listing-home-margin2">
+                        <mat-list-item role="listitem" class="color-dgray"> <mat-icon matPrefix class="mr-5 color-lgreen">done</mat-icon> Välj dina egna arbetstider</mat-list-item>
+                        <mat-list-item role="listitem" class="color-dgray"> <mat-icon matPrefix class="mr-5 color-lgreen">done</mat-icon> Välj ditt eget timpris</mat-list-item>
+                        <mat-list-item role="listitem" class="color-dgray"> <mat-icon matPrefix class="mr-5 color-lgreen">done</mat-icon> Hitta nya kunder</mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+           <div class="mb-20 mt-20 pr-15 wib-main-block" fxLayout="row"  fxLayoutAlign.gt-xs="end center" fxLayoutAlign="end center" fxFlex.gt-xs="100" fxFlex.gt-sm="65" fxFlex.gt-md="71"  >
+                <div class="card-box" fxLayout="column" fxLayoutAlign="center initial" fxFlex.gt-sm="83">
+                    <h3 class="fontsize-20 font-family-m color-dblue text-uppercase mt-0 mb-25" fxFlex="100">SE HUR MYCKET DU KAN TJÄNA PÅ BRING CLEAN PLATTFORMEN:</h3>
+                    <div class="" style="color: #BBCBDB;" fxLayout="column" fxLayoutAlign="start start"  fxFlex="100" fxFill="fill">
+                        <div class="r-slider-reg-cleaner mt-20" fxFlex="100" fxFill="fill">
+                            <p class="fontsize-16 color-dgray mt-0 mb-10 fontweight-600">Tillgänglighet per vecka: {{ calculatedvalue  }} timmar á <span class="display-ib">150 KR</span></p>
+                            <mat-slider
+                                thumbLabel
+                                [displayWith]="formatLabel"
+                                tickInterval="1"
+                                min="1"
+                                max="40"
+                                value="1"
+                                (input)="onInputChange($event)"
+                                ></mat-slider>
+                            <p class="fontsize-16 color-dgray mt-10 mb-30 fontweight-600">Din potentiella intjäning per månad: <span class="color-dblue fontsize-20 ml-5 display-ib">{{ calculatedPrice }} KR</span></p>
+                        </div>
+                    </div>
+                    <div class="mb-0" fxLayout="row" fxLayoutAlign="center center">
+                        <button mat-flat-button class="bg-yellow color-white mt-0 mb-0" (click)="cleanerReg()" >REGISTRERA DIG SOM STÄDARE</button>
+                    </div>
+                 </div>
+           </div>
+        </div>
+    </div>
+</div>
+<div class="reg-cleaner-sec-5" fxLayout="column" fxLayoutAlign="space-between space-between">
+    <div class="container">
+        <div class="" fxLayout="column" fxLayoutAlign="center center">
+            <div class="color-lgray" fxLayout="row" fxLayoutAlign="center center"><h2 class="fontsize-36 align-center mt-0 mb-55">Hur du tar emot städförfrågningar</h2></div>
+            <div class="" fxLayout="column" fxLayoutAlign="center center">
+                    <div class="mr-15 ml-15 mb-10" fxLayout="column" fxLayout.gt-xs="row" fxFlex="100" fxFlex.gt-sm="100" fxLayoutAlign="center center">
+                        <div class="mr-40" fxLayout="row" fxFlex="100" fxFlex.gt-sm="36" fxFlex.gt-md="30" fxLayoutAlign="start start" >
+                            <img src="assets/images/rcs-reg-profile.png" class="mb-20 rcs5-circle-img1" />
+                            <span class="rcs5-circle-blue1"></span>
+                        </div>
+                        <div class="" fxLayout="column" fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="start start"  >
+                            <h6 class="fontsize-24 fontweight-600 mt-0 mb-0 color-dblue">Registrera & skapa ett konto helt gratis</h6>
+                            <p class="fontsize-16 color-dgray">Registrera dig på BringClean genom ett par snabba steg! Svara på några frågor för att komplettera din profil och ladda sedan upp ID kopia och andra nödvändiga dokument som vi behöver för att kunna aktivera ditt konto. För att öka dina chanser till uppdrag så rekommenderar vi även att du laddar upp en personlig profilbild.</p>
+                        </div>
+                    </div>
+                    <div class="mr-15 ml-15 mb-10" fxLayout="column" fxLayout.gt-xs="row" fxFlex="100" fxFlex.gt-sm="100" fxLayoutAlign="center center">
+                        <div class="ml-40 small-screen-b" fxLayout="row" fxFlex="100" fxFlex.gt-sm="36" fxFlex.gt-md="30" fxLayoutAlign="end start" >
+                            <img src="assets/images/rcs-reg-profile2.png" class="mb-20 rcs5-circle-img1" />
+                            <span class="rcs5-circle-blue2"></span>
+                        </div>
+                        <div class="" fxLayout="column" fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="start start" >
+                            <h6 class="fontsize-24 fontweight-600 mt-0 mb-0 color-dblue">Acceptera städförfrågningar</h6>
+                            <p class="fontsize-16 color-dgray">När din profil har blivit aktiverad så kommer du att börja motta städförfrågningar från kunder i just de områden som du själv valt. Du väljer själv vilka förfrågningar du vill acceptera och vilka du vill tacka nej till. Det finns inget tvång att acceptera förfrågningar men när du väl har accepterat en förfrågan från en kund så blir det ett bindande avtal som måste fullföljas. BringClean ger dig möjligheten att välja dina egna arbetstider och timpriser.</p>
+                        </div>
+                        <div class="ml-40 large-screen-b" fxLayout="row" fxFlex="100" fxFlex.gt-sm="36" fxFlex.gt-md="30" fxLayoutAlign="end start" >
+                            <img src="assets/images/rcs-reg-profile2.png" class="mb-20 rcs5-circle-img1" />
+                            <span class="rcs5-circle-blue2"></span>
+                        </div>
+                    </div>
+                    <div class="mr-15 ml-15 mb-10" fxLayout="column" fxLayout.gt-xs="row" fxFlex="100" fxFlex.gt-sm="100" fxLayoutAlign="center center">
+                        <div class="mr-40" fxLayout="row" fxFlex="100" fxFlex.gt-sm="36" fxFlex.gt-md="30" fxLayoutAlign="start start" >
+                            <img src="assets/images/rcs-reg-profile3.png" class="mb-20 rcs5-circle-img1" />
+                            <span class="rcs5-circle-blue3"></span>
+                        </div>
+                        <div class="" fxLayout="column" fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="start start" >
+                            <h6 class="fontsize-24 fontweight-600 mt-0 mb-0 color-dblue">Tjäna pengar</h6>
+                            <p class="fontsize-16 color-dgray">Som en egenanställd tjänsteleverantör så bestämmer du själv hur mycket betalt du vill ta per timme och hur många timmar du vill arbeta. Du kan ändra dina priser och dina tillgängliga timmar när som helst i din profil och då tillämpas dessa inställningar omgående för alla framtida kunder. Om du behöver hjälp att starta en enskild firma t.ex. så kan vi hänvisa dig till rådgivare som snabbt och enkelt hjälper dig igång. Du behöver inte heller bekymra dig för all administration kring RUT-ansökningar, nekade RUT-utbetalningar, fakturering och liknande då vi tar hand om allt detta åt dig så att du ska kunna ägna dig åt ditt arbete.</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="reg-cleaner-sec-6" fxLayout="row"  fxLayoutAlign="space-between end">
+        <div class="" fxLayout="column" fxLayout.gt-xs="column"  fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayout.gt-lg="row" fxLayoutAlign="space-between center">
+            <div class="rcs-6-inner-block-padding" fxLayout="column" fxLayoutAlign="start start" fxFlex="90" fxFlex.gt-xs="90" fxFlex.gt-sm="53" fxFlex.gt-md="52" fxFlex.gt-lg="35" fxFlexOffset="2" fxFlexOffset.gt-xs="3" fxFlexOffset.gt-sm="0" fxFlexOffset.gt-md="0" fxFlexOffset.gt-lg="19" style="padding:2%;">
+                <h2 class="color-lgray fontsize-36 mt-20 mb-20">Om BringClean</h2>
+                <p class="color-dgray fontsize-16 mt-0 mb-20">En unik plattform, speciellt framtagen för att underlätta livet för dig som köper RUT tjänster samt för dig som levererar sådana tjänster. Hemstädning, fönsterputsning och andra RUT tjänster beställs enkelt via plattformen. Genom att ansluta dig som leverantör till BringClean så kan du åtnjuta all vår expertis inom marknadsföring, kundsupport, kontakter med Skatteverket mm. Vi vill ge dig möjlighet att arbeta på dina villkor. Kanske vill du tjäna extra pengar genom att utföra städtjänster kvällar och helger om du är student? Eller så kanske du vill bygga en karriär och arbeta heltid med något du tycker om på tider som passar dig? Du väljer själv vilka kunder du vill ha och i vilka områden du vill ta emot förfrågningar i. Kunden bokar enkelt direkt på hemsidan och väljer vilka städare denne vill erbjuda uppdraget och hur mycket denne vill betala. Den städare som först accepterar uppdraget får jobbet och nu kan ni samtala om detaljer kring uppdraget via vår säkra chatt. Efter genomfört uppdrag så kan både städare och kund ge varandra betyg och kommentera hur uppdraget genomförts för att hjälpa andra.</p>
+                <!-- <p class="color-dgray fontsize-16 mt-0 mb-20"></p> -->
+            </div>
+            <div class="" fxLayout="column" fxLayoutAlign="end end" fxFlex.gt-xs="100" fxFlex.gt-sm="41">
+                    <div class="mr-0 ml-15" fxLayout="column"  fxLayoutAlign="end end">
+                        <img src="assets/images/reg-cleaner-lft-img1.png" class="reg-cleaner-lft-img mb-0" />
+                    </div>
+            </div>
+        </div>
+</div>
+<div class="home-sec-7" fxLayout="column"  fxLayoutAlign="center center">
+    <div class="container">
+        <div class="" fxLayout="column" fxFlex="100" fxFlex.gt-sm="100" fxLayoutAlign="center center">
+            <div class="color-lgray" fxLayout="column" fxLayoutAlign="center center"><h2 class="fontsize-36 align-center mt-0 mb-50">Vanliga Frågor</h2></div>
+            <div class="mobile-padding" fxLayout="column" fxLayoutAlign="center center" fxFlex="100" fxFill="fill">
+                    <div fxLayout="column" class="home-accordian-width">
+                            <mat-accordion>
+                                    <mat-expansion-panel>
+                                      <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Vad är BringClean?
+                                        </mat-panel-title>
+                                      </mat-expansion-panel-header>
+                                      <p>BringClean är en plattform som underlättar för dig som behöver hjälp med hemstädning och andra RUT-tjänster. På plattformen hittar du personal som kan komma hem till dig och städa när det passar dig. Trygghet för både köpare och städare är av största vikt för oss på BringClean och alla städare som du hittar på plattformen har gått igenom bakgrundskontroller och intervjuer innan de tillåts buda på uppdrag.</p>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                            Hur fungerar prissättningen?
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <p>Vi har en väldigt transparent prissättning där du som kund direkt ser vad timpriset hos respektive städare är. Städarna sätter själva sina timpriser och du kan anlita städare som motsvarar dina krav och din budget. Alla priser i systemet anges efter RUT-avdrag och det är upp till dig som kund att se till att du är berättigad till RUT-avdrag. I annat fall debiteras du den kostnaden enligt avtalsvillkoren.</p>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Behöver jag göra något innan min städare anländer?
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <p>Du behöver tillhandahålla allt material som städaren kan tänkas behöva när denne anländer till din bostad så att städaren kan göra ett bra jobb. Om du saknar material så kan du enkelt beställa detta via BringClean så skickar vi hem miljövänliga material så att du har det ni behöver. Värdesaker bör låsas in då BringClean ej ansvarar för dessa.</p>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Behöver jag vara hemma vid bokningen?
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <p>Många kunder har inte möjlighet att vara hemma och ta emot städaren pga arbete, skola eller liknande och då löser du detta med städaren direkt i chatten. Ni kommer överrens om hur städaren ska få access till ditt hem genom att t.ex. hämta nyckel hos granne, få en tillfällig kod om ni har ett kodlås eller liknande. Vi brukar uppmuntra våra kunder att vara hemma första gången i alla fall så att ni får träffas personligen och du kan ge instruktioner till städaren på plats. Det brukar uppskattas av båda parter.</p>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel>
+                                      <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Jag är inte nöjd / Min städare dök inte upp
+                                        </mat-panel-title>
+                                      </mat-expansion-panel-header>
+                                      <p>Om något skulle gå fel så kontaktar du bara oss så fort som möjligt, dock senast 24 timmar efter det att uppdraget påbörjats. Vi låser då utbetalningen till den berörda städaren till dess att ärendet har utretts (vilket brukar gå väldigt snabbt). Återbetalning av hela eller delar av summan till dig som köpare kan bli aktuellt varpå vi då krediterar ditt konto så att du kan använda pengarna till att boka en ny städare på BringClean.</p>
+                                    </mat-expansion-panel>
+                                  </mat-accordion>
+                    </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center" class="display-b"><button routerLink="/faq-category-page" mat-flat-button class="bg-blue mt-20 mb-30">HAR DU FLER FRÅGOR?</button></div>
+        </div>
+    </div>
+</div>
+<div class="home-sec-8" fxLayout="column" fxLayoutAlign="start center">
+    <div class="container">
+        <div class="mt-60" fxLayout="column" fxLayoutAlign="start center">
+            <div class="" fxLayout="column"><h2 class="color-white align-center fontsize-36 mt-0 mb-30">Hitta städförfrågningar i ditt område</h2></div>
+            <div class="" fxLayout="column" fxLayoutAlign="center center">
+                <button mat-flat-button class="btn-group1-btn relative btnwidth-500">SE FÖRFRÅGNINGAR</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * * * * * * * * * * * Start Footer * * * * * * * * * * * -->
+<app-footer></app-footer>

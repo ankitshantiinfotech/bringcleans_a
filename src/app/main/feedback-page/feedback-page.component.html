@@ -1,0 +1,121 @@
+<app-after-login-header></app-after-login-header>
+<!-- * * * * * * * * * * * Start Header * * * * * * * * * * * -->
+
+
+<div class="account-head-top">
+    <div class="container align-center">
+        <div class="">
+            <h2 class="font-family-m fontweight-400 fontsize-30 color-white mb-11 mt-11">Lämna lite feedback</h2>
+        </div>
+    </div>
+</div>
+
+
+<section class="clear dashboard-sec-2">
+    <div class="container">
+        <div class="pt-40 pb-40" fxLayout="column" fxLayout.gt-xs="row" fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayout.gt-lg="row" fxLayoutAlign="space-between">
+            <div class="bg-screen-gray1 around-15 pt-40 pb-40 border-radius10" fxLayout="row" fxLayoutAlign="start start" fxFlex.gt-xs="28" fxFlex.gt-sm="23" fxFlex.gt-md="23" fxFlex.gt-lg="23">
+                <div class=" align-left w-100">
+                    <div class="relative align-center">
+                        <img src="{{ (CleanerInfo && CleanerInfo.cleaner_profile_pic !='' )?'http://78.46.210.25:4007/uploads/profile_pic/'+CleanerInfo.cleaner_profile_pic:'assets/images/round-img4.png' }}" class="payout-img" style="width: 150px;height: 150px; object-fit: cover; border-radius: 50%;">
+                        <p class="color-dblue fontsize-16 fontweight-600 mt-10 mb-15" >{{ CleanerInfo.cleaner_first_name }} &nbsp;{{ CleanerInfo.cleaner_last_name }}.</p>
+                        <p class="fontsize-15 color-mgray  mt-5 mb-0">Senaste uppdrag:</p>
+                        <p class="fontsize-16 color-mgray  mt-5 mb-0">{{ (CleanerInfo && CleanerInfo.starttime)?(CleanerInfo.starttime | date:'EEEE, MMMM d' ):'' }}</p>
+                        <p class="fontsize-15 color-mgray  mt-5 mb-0">klockan {{ (CleanerInfo && CleanerInfo.starttime)?(CleanerInfo.starttime | date:'HH:mm' ):''  }} </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-screen-gray1 around-20 border-radius10" fxLayout="column"  fxFlex.gt-xs="66" fxFlex.gt-sm="75" fxFlex.gt-md="75" fxFlex.gt-lg="75">
+                <div class="feedback-rating-block" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="100">
+                    <h3 class="fontsize-20 color-mgray mt-0 mb-10">Hej, {{ CleanerInfo.user_first_name }} &nbsp;{{ CleanerInfo.user_last_name }}! Hur går det för {{ CleanerInfo.cleaner_first_name }} &nbsp;{{ CleanerInfo.cleaner_last_name }}. ?</h3>
+
+                    <div class="fr-white-block mt-10" fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayout.gt-lg="row" fxLayoutAlign="space-between center" fxLayoutAlign.gt-xs="space-between center" fxLayoutAlign.gt-sm="space-between start" fxLayoutAlign.gt-md="space-between start" fxLayoutAlign.gt-lg="space-between start">
+
+                        <div class="" fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.gt-xs="center center" fxLayoutAlign.gt-sm="start start" fxLayoutAlign.gt-md="start start" fxLayoutAlign.gt-lg="start start">
+                             <h4 class="fontsize-16 fontweight-600 color-dblue mt-0 mb-5">Kvalitet</h4>
+                             <p class="fontsize-14 color-mgray mt-0 mb-0">Är städningen väl utförd?</p>
+                        </div>
+                        <div class="" fxLayout="row" fxLayoutAlign="start start">
+                            <div class="star-icon-p" fxLayout="row">
+                                <star-rating class="fontsize-12" value="0" totalstars="0" checkedcolor="#FFAD1E" uncheckedcolor="#AAC7DD" size="35px" readonly="false" (rate)="onRateQuality_rate($event)"></star-rating>
+                            </div>
+                       </div>
+                    </div>
+                    <span *ngIf="Quality_rateErr" class="error">Betyg krävs. </span>
+
+
+                    <div class="fr-white-block mt-10" fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayout.gt-lg="row" fxLayoutAlign="space-between center" fxLayoutAlign.gt-xs="space-between center" fxLayoutAlign.gt-sm="space-between start" fxLayoutAlign.gt-md="space-between start" fxLayoutAlign.gt-lg="space-between start">
+                            <div class="" fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.gt-xs="center center" fxLayoutAlign.gt-sm="start start" fxLayoutAlign.gt-md="start start" fxLayoutAlign.gt-lg="start start">
+                             <h4 class="fontsize-16 fontweight-600 color-dblue mt-0 mb-5">
+                                Pålitlighet</h4>
+                             <p class="fontsize-14 color-mgray mt-0 mb-0">Höll  {{ CleanerInfo.cleaner_first_name }} &nbsp;{{ CleanerInfo.cleaner_last_name }} s tiderna?</p>
+                        </div>
+                        <div class="" fxLayout="row" fxLayoutAlign="start start">
+                            <div class="star-icon-p" fxLayout="row">
+                                <star-rating class="fontsize-12" value="0" totalstars="0" checkedcolor="#FFAD1E" uncheckedcolor="#AAC7DD" size="35px" readonly="false" (rate)="onRateReliability_rate($event)"></star-rating>
+                            </div>
+                       </div>
+                    </div>
+                    <span *ngIf="Reliability_rateErr" class="error">Betyg krävs.</span>
+
+                    <div class="fr-white-block mt-10" fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayout.gt-lg="row" fxLayoutAlign="space-between center" fxLayoutAlign.gt-xs="space-between center" fxLayoutAlign.gt-sm="space-between start" fxLayoutAlign.gt-md="space-between start" fxLayoutAlign.gt-lg="space-between start">
+                            <div class="" fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.gt-xs="center center" fxLayoutAlign.gt-sm="start start" fxLayoutAlign.gt-md="start start" fxLayoutAlign.gt-lg="start start">
+                             <h4 class="fontsize-16 fontweight-600 color-dblue mt-0 mb-5">Vänlighet</h4>
+                             <p class="fontsize-14 color-mgray mt-0 mb-0">Trevlig och tillmötesgående?</p>
+                        </div>
+                        <div class="" fxLayout="row" fxLayoutAlign="start start">
+                            <div class="star-icon-p" fxLayout="row">
+                                <star-rating class="fontsize-12" value="0" totalstars="0" checkedcolor="#FFAD1E" uncheckedcolor="#AAC7DD" size="35px" readonly="false" (rate)="onRateFriendliness_rate($event)"></star-rating>
+                            </div>
+                       </div>
+                    </div>
+                    <span *ngIf="Friendliness_rateErr" class="error">Betyg krävs.</span>
+
+                </div>
+
+                <div class="feedback-rating-block" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="100">
+                    <h3 class="fontsize-20 color-mgray mt-20 mb-10">Berätta om din upplevelse med {{ CleanerInfo.cleaner_first_name }} &nbsp;{{ CleanerInfo.cleaner_last_name }}.</h3>
+                    <div class="fr-white-block2 mt-10 mb-10" fxLayout="row" fxLayoutAlign="space-between start">
+                        <div class="relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="100" fxFlex="100">
+                            <mat-form-field class="text-area">
+                                <textarea matInput placeholder="{{ CleanerInfo.cleaner_first_name }} &nbsp;{{ CleanerInfo.cleaner_last_name }}. var..." [(ngModel)]="review" (keypress)="removeErr('ReviewErr');"></textarea>
+                            </mat-form-field>
+                            <span *ngIf="ReviewErr" class="error" style="position: absolute; bottom: -18px; left: 0;">Betyg krävs.</span>
+                        </div>
+                    </div>
+                    <div class="fr-white-block2 mt-10 mb-10" fxLayout="row" fxLayoutAlign="space-between start">
+                        <div class="relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="100" fxFlex="100">
+                            <mat-form-field class="text-area">
+    <textarea matInput placeholder="Lämna feedback direkt till {{ CleanerInfo.cleaner_first_name }}&nbsp;{{ CleanerInfo.cleaner_last_name }}. så att din nästa städning blir perfekt (det här delas bara med din städare)" [(ngModel)]="review_for_cleaner" (keypress)="removeErr('Review_for_cleanerErr');"></textarea>
+                            </mat-form-field>
+                            <span *ngIf="Review_for_cleanerErr" class="error" style="position: absolute; bottom: -18px; left: 0;">Recension krävs Recension till städaren krävs.</span>
+                        </div>
+                    </div>
+                    <div class="">
+                        <p>Om du har någon feedback till BringClean, tveka inte att meddela oss genom att använda<a class="color-dblue"> detta formulär </a> </p>
+                    </div>
+                    <div class="align-center mb-20" fxLayoutAlign="center center" style="width: 100%;">
+                        <button mat-flat-button class="bg-blue pricing-top-btn-position color-white mt-20 mb-0" (click)="saveRating();" >SPARA OMDÖME</button>
+                        <!-- <span *ngIf="saveRatingErr" class="error">{{ saveRatingErrMsg }}</span> -->
+                    </div>
+
+                            <div class="green-alert success" *ngIf="saveSucErr" >
+                              <span class="fontsize-16 color-mgray fontweight-400 mb-0"> {{ saveRatingSucMsg }} </span>
+                            </div>
+                            <div class="danger-alert error" *ngIf="saveRatingErr">
+                              <span class="fontsize-16 color-mgray fontweight-400 mb-0"> {{ saveRatingErrMsg }} </span>
+                            </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- * * * * * * * * * * * Start Footer * * * * * * * * * * * -->
+
+
+<app-after-login-footer></app-after-login-footer>

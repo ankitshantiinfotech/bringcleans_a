@@ -1,0 +1,148 @@
+<app-after-login-header *ngIf="logged"></app-after-login-header>
+<app-header *ngIf="!logged"></app-header><!-- * * * * * * * * * * * Start Header * * * * * * * * * * * -->
+
+
+<div class="account-head-top">
+    <div class="container align-center">
+        <div class="">
+            <h2 class="font-family-m fontweight-400 fontsize-30 color-white mb-0 mt-0">Behöver du hjälp?</h2>
+            <p class="mt-0 mb-0 fontsize-16 color-white">Du är på rätt plats.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="home-sec-2" fxLayout="column" fxLayoutAlign="space-between space-between">
+    <div class="container">
+        <div class="" fxLayout="row" fxLayoutAlign="center center">
+           <div class="mt-10" fxLayout="row" fxLayout.gt.xs="row" fxLayout.gt.sm="row" fxFlex="100" fxFlex.gt.sm="100" fxFlex.gt.md="100" fxLayoutAlign="center center">
+                <div fxLayout="row" fxFlex="90" fxFlex.gt-xs="80" fxFlex.gt-sm="80" class="relative input-border right-padding">
+                        <mat-form-field appearance="outline" class="">
+                                <input matInput placeholder="Jag behöver hjälp med ...">
+                        </mat-form-field>
+                        <div>
+                                <button mat-flat-button class="btn-group1-btn bg-blue-inpt text-uppercase"> HITTA HJÄLP</button>
+                        </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>         
+
+
+<div class="help-sec-2" fxLayout="column" fxLayoutAlign="start start">
+    <div class="container" fxLayout="column">
+        <div class="mb-30" fxLayout="row wrap" fxLayoutGap="0px" fxLayoutGap.gt-lg="30px" fxLayoutGap.gt-md="30px"  fxLayoutGap.gt-sm="20px" fxLayoutGap.gt-xs="10px" fxflex="100">
+            <div class="" fxLayoutAlign="start start" fxLayout="column" fxflex="90" fxFlex.gt-xs="45" fxFlex.gt-sm="30" fxFlex.gt-md="30" fxFlex.gt-lg="30">
+                <h3 class="fontsize-18 fontweight-600 color-dblue mt-0 mb-5 h-h3-heading" fxLayoutAlign="start start">
+                    <img src="../../../assets/images/small-star-gray.png" class="width20 mr-15 mt-2">
+                    Startsektion</h3>
+                <p class="color-mgray fontsize-14 mt-0 mb-0">Hur du förbereder dig för din första rengöring.</p>
+            </div>
+            <div class="" fxLayoutAlign="start start" fxLayout="column" fxflex="90" fxFlex.gt-xs="45" fxFlex.gt-sm="30" fxFlex.gt-md="30" fxFlex.gt-lg="30">
+                <h3 class="fontsize-18 fontweight-600 color-dblue mt-0 mb-5 h-h3-heading" fxLayoutAlign="start start"><img src="../../../assets/images/small-book-gray.png" class="width20 mr-15 mt-2"> Hur fungerar BringClean?</h3>
+                <p class="color-mgray fontsize-14 mt-0 mb-0">Inklusive mer information på bringclean.se.</p>
+            </div>
+            <div class="" fxLayoutAlign="start start" fxLayout="column" fxflex="90" fxFlex.gt-xs="45" fxFlex.gt-sm="30" fxFlex.gt-md="30" fxFlex.gt-lg="30">
+                <h3 class="fontsize-18 fontweight-600 color-dblue mt-0 mb-5 h-h3-heading" fxLayoutAlign="start start"><img src="../../../assets/images/small-calender-gray.png" class="width20 mr-15 mt-2"> Gör en bokning</h3>
+                <p class="color-mgray fontsize-14 mt-0 mb-0">Inklusive hur man gör en bokning och betalningsinformation.</p>
+            </div>
+
+            <div class="" fxLayoutAlign="start start" fxLayout="column" fxflex="90" fxFlex.gt-xs="45" fxFlex.gt-sm="30" fxFlex.gt-md="30" fxFlex.gt-lg="30">
+                <h3 class="fontsize-18 fontweight-600 color-dblue mt-0 mb-5 h-h3-heading" fxLayoutAlign="start start"><img src="../../../assets/images/small-payment-gray.png" class="width20 mr-15 mt-2"> Betalning</h3>
+                <p class="color-mgray fontsize-14 mt-0 mb-0">Städkostnad, återbetalningar och betalningsinformation</p>
+            </div>
+            <div class="" fxLayoutAlign="start start" fxLayout="column" fxflex="90" fxFlex.gt-xs="45" fxFlex.gt-sm="30" fxFlex.gt-md="30" fxFlex.gt-lg="30">
+                <h3 class="fontsize-18 fontweight-600 color-dblue mt-0 mb-5 h-h3-heading" fxLayoutAlign="start start"><img src="../../../assets/images/small-feedback-gray.png" class="width20 mr-15 mt-2"> Lämna feedback</h3>
+                <p class="color-mgray fontsize-14 mt-0 mb-0">Lämna feedback till städare, ge feedback till BringClean.</p>
+            </div>
+            <div class="" fxLayoutAlign="start start" fxLayout="column" fxflex="90" fxFlex.gt-xs="45" fxFlex.gt-sm="30" fxFlex.gt-md="30" fxFlex.gt-lg="30">
+                <h3 class="fontsize-18 fontweight-600 color-dblue mt-0 mb-5 h-h3-heading" fxLayoutAlign="start start"><img src="../../../assets/images/small-edit-gray.png" class="width20 mr-15 mt-2"> Förändringar i bokning </h3>
+                <p class="color-mgray fontsize-14 mt-0 mb-0">Ändra / avboka bokningar. Visar nästkommande och framtida bokningar.</p>
+            </div>
+
+            <div class="" fxLayoutAlign="start start" fxLayout="column" fxflex="90" fxFlex.gt-xs="45" fxFlex.gt-sm="30" fxFlex.gt-md="30" fxFlex.gt-lg="30">
+                <h3 class="fontsize-18 fontweight-600 color-dblue mt-0 mb-5 h-h3-heading" fxLayoutAlign="start start"><img src="../../../assets/images/small-cleaner-gray.png" class="width20 mr-15 mt-2"> Att bli en ansluten städare </h3>
+                <p class="color-mgray fontsize-14 mt-0 mb-0">hur man blir en städare på BringClean.</p>
+            </div>
+            <div class="" fxLayoutAlign="start start" fxLayout="column" fxflex="90" fxFlex.gt-xs="45" fxFlex.gt-sm="30" fxFlex.gt-md="30" fxFlex.gt-lg="30">
+                <h3 class="fontsize-18 fontweight-600 color-dblue mt-0 mb-5 h-h3-heading" fxLayoutAlign="start start"><img src="../../../assets/images/small-lock-gray.png" class="width20 mr-15 mt-2"> Kampanjer, referenser och dataskydd </h3>
+                <p class="color-mgray fontsize-14 mt-0 mb-0">Om din personliga information och hur du tar bort kontot.</p>
+            </div>
+            <div class="" fxLayoutAlign="start start" fxLayout="column" fxflex="90" fxFlex.gt-xs="45" fxFlex.gt-sm="30" fxFlex.gt-md="30" fxFlex.gt-lg="30">
+                <h3 class="fontsize-18 fontweight-600 color-dblue mt-0 mb-5 h-h3-heading" fxLayoutAlign="start start"><img src="../../../assets/images/small-info-gray.png" class="width20 mr-15 mt-2"> Behöver du fortfarande hjälp.</h3>
+                <p class="color-mgray fontsize-14 mt-0 mb-0">Kontakta oss gärna.</p>
+            </div>
+        </div>  
+    </div>
+</div> 
+
+<div class="home-sec-7" fxLayout="column"  fxLayoutAlign="center center">
+    <div class="container">
+        <div class="" fxLayout="column" fxFlex="100" fxFlex.gt-sm="100" fxLayoutAlign="center center">
+            <div class="color-lgray" fxLayout="column" fxLayoutAlign="center center"><h2 class="fontsize-36 align-center mt-0 mb-50">Vanliga Frågor</h2></div>
+            <div class="mobile-padding" fxLayout="column" fxLayoutAlign="center center" fxFlex="100" fxFill="fill">
+                <div fxLayout="column" class="home-accordian-width">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Vad är BringClean?
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>BringClean är en plattform som underlättar för dig som behöver hjälp med hemstädning och andra RUT-tjänster. På plattformen hittar du personal som kan komma hem till dig och städa när det passar dig. Trygghet för både köpare och städare är av största vikt för oss på BringClean och alla städare som du hittar på plattformen har gått igenom bakgrundskontroller och intervjuer innan de tillåts buda på uppdrag.</p>
+                            
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                Hur fungerar prissättningen?
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>Vi har en väldigt transparent prissättning där du som kund direkt ser vad timpriset hos respektive städare är. Städarna sätter själva sina timpriser och du kan anlita städare som motsvarar dina krav och din budget. Alla priser i systemet anges efter RUT-avdrag och det är upp till dig som kund att se till att du är berättigad till RUT-avdrag. I annat fall debiteras du den kostnaden enligt avtalsvillkoren.</p>
+                            
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Behöver jag göra något innan min städare anländer?
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>Du behöver tillhandahålla allt material som städaren kan tänkas behöva när denne anländer till din bostad så att städaren kan göra ett bra jobb. Om du saknar material så kan du enkelt beställa detta via BringClean så skickar vi hem miljövänliga material så att du har det ni behöver. Värdesaker bör låsas in då BringClean ej ansvarar för dessa.</p>
+                            
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Behöver jag vara hemma vid bokningen?
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>Många kunder har inte möjlighet att vara hemma och ta emot städaren pga arbete, skola eller liknande och då löser du detta med städaren direkt i chatten. Ni kommer överrens om hur städaren ska få access till ditt hem genom att t.ex. hämta nyckel hos granne, få en tillfällig kod om ni har ett kodlås eller liknande. Vi brukar uppmuntra våra kunder att vara hemma första gången i alla fall så att ni får träffas personligen och du kan ge instruktioner till städaren på plats. Det brukar uppskattas av båda parter.</p>
+                            
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Jag är inte nöjd / Min städare dök inte upp
+                            </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>Om något skulle gå fel så kontaktar du bara oss så fort som möjligt, dock senast 24 timmar efter det att uppdraget påbörjats. Vi låser då utbetalningen till den berörda städaren till dess att ärendet har utretts (vilket brukar gå väldigt snabbt). Återbetalning av hela eller delar av summan till dig som köpare kan bli aktuellt varpå vi då krediterar ditt konto så att du kan använda pengarna till att boka en ny städare på BringClean.</p>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center" class="display-b" style="display: block !important;">
+                <button routerLink="/faq-category-page" mat-flat-button class="bg-blue mt-20 mb-30">HAR DU FLER FRÅGOR?</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- * * * * * * * * * * * Start Footer * * * * * * * * * * * -->
+
+
+<app-after-login-footer></app-after-login-footer>

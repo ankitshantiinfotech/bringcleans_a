@@ -1,0 +1,20 @@
+@import "../../../scss/_node-module-override";
+@import "../../../scss/_styles";
+@import "../../../scss/_theming";
+
+
+@media (max-width:767px){
+    .w-100{
+        overflow: auto;
+        .table{
+            width:600px
+        }
+    }
+}
+.material-icons{
+    direction: rtl;
+}
+
+.width270 {
+    width:270px
+}

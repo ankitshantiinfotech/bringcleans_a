@@ -1,0 +1,41 @@
+<app-front-end-logout></app-front-end-logout>
+<!-- * * * * * * * * * * * Start Header * * * * * * * * * * * -->
+
+ <div class="login-sec-1" fxLayout="row">
+     <img src="assets/images/top_blue_circle_full.png" class="top_blue_circle_full-img" alt="">
+     <img src="assets/images/top_blue_circle_half.png" class="top_blue_circle_half-img" alt="">
+    <div class="container">
+
+      <div >
+
+        <div class="mb-20 mt-20" fxLayout="column" fxLayoutAlign.gt-xs="center center" fxLayoutAlign="center center" fxFlex.gt-xs="100" fxFlex.gt-sm="100" fxFlex.gt-md="100"  >
+          <div class="card-box" fxLayout="column">
+            <div class="" fxLayout="column" fxLayoutAlign="start center"  fxFlex="100">
+              <h3 class="fontsize-30 font-family-m color-lgray align-center mt-0 mb-45" fxFlex="100"> {{ currentQuestion.que }}</h3>
+            </div>
+            <div class="color-dblue" fxLayout="column" fxLayoutAlign="start start"  fxFlex="100">
+              <div *ngFor="let ans of currentQuestion.answers; let i= index" class="mb-20 ml-auto" fxLayout="column" fxLayoutAlign="space-between center"  fxFlex="100" fxLayout="100" style="width: 100%;">
+                <button mat-flat-button id="native{{ i }}" (click)="setProf('native', i, currentQuestion.id, current, ans)" class="border-light-blue  color-white mt-0 mb-0 noactive" style="width: 100%;">{{ ans }}</button>
+              </div>
+            </div>
+            <p style="text-align: center;"><span class="errorVal fontsize-12 mt-0 mb-0 width300 display-ib relative">{{ error }}</span></p>
+
+            <div class="mb-20 mt-20 ml-auto" fxLayout="column" fxLayoutAlign="space-between center"  fxFlex="100" fxLayout="100">
+              <button (click)="back()" mat-flat-button class="bg-light-blue color-white mt-0 mb-0">Tillbaka</button>
+              <button (click)="finReg()" mat-flat-button class="bg-yellow color-white mt-0 mb-0">Nästa</button>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+</div>
+
+
+
+<!-- * * * * * * * * * * * Start Footer * * * * * * * * * * * -->
+
+
+<app-before-login-footer></app-before-login-footer>

@@ -1,0 +1,20 @@
+<mat-toolbar class="navbar-class">
+    <div class="container" fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <a href="/"><img src="assets/images/logo.png" class="logo"></a>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div fxLayout="column" fxLayoutAlign="start center" class="small-d-n">
+                <button (click)="cleanerPage()" mat-button class="border-blue lineheigt35"  >REGISTRERA DIG SOM STÄDARE</button>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="start center" [class.display-none]="logged" class="small-d-n">
+                <button (click)="login()" mat-button class="color-blue fontsize-14 ">LOGGA IN </button>
+            </div>
+        </div>
+    </div>
+</mat-toolbar>
+
+
+
+
+

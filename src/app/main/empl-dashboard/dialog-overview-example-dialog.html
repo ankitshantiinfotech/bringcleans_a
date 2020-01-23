@@ -1,0 +1,90 @@
+<section class="modal-sec-1 relative width80vw">
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close id="closePop"><img src="assets/images/crose-icon.png"></button>
+  </mat-dialog-actions>
+<mat-dialog-content class="pt-20">
+  <div class="pt-0 pb-15" fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayout.gt-lg="row" fxLayoutAlign="space-between">
+    <div class="around-15 pt-0" fxLayout="colunm" fxLayoutAlign="start start" fxFlex.gt-xs="100" fxFlex.gt-sm="27" fxFlex.gt-md="27" fxFlex.gt-lg="27">
+        <div class=" align-left w-100">
+            <div class="relative">
+                <img src="{{ cleanProfile }}" class="modal-round-img">
+
+                <p class="color-dgray fontsize-16 fontweight-600 mt-5 mb-5" style="text-transform: capitalize;">{{ cleanName }}</p>
+                <div class="star-icon-p" fxLayout.gt-xs="row">
+                    
+                    <span *ngFor="let number of [1,2,3,4,5]" >
+                      <mat-icon class="vertical-middle color-yellow" matPrefix *ngIf="number <=cleanRating" >star</mat-icon>
+                      <mat-icon class="vertical-middle" matPrefix *ngIf="number > cleanRating" >star</mat-icon>
+                    </span> 
+
+                    <span class="color-dgray fontsize-15 fontweight-600 display-ib ml-10">{{ cleanRating }}/5.0</span>
+                </div>
+                <p class="fontsize-15 color-dgray fontweight-400 mt-5 mb-0">
+                  <mat-icon *ngIf='cleanId == 1' class="color-lgreen vertical-text-top">done</mat-icon>
+                  <mat-icon *ngIf='cleanId != 1' class="color-lred vertical-text-top">clear</mat-icon> ID kontroll</p>
+                <p class="fontsize-15 color-dgray fontweight-400 mt-5 mb-0">
+                    <mat-icon *ngIf='cleanId == 1' class="color-lgreen vertical-text-top">done</mat-icon>
+                    <mat-icon *ngIf='cleanId != 1' class="color-lred vertical-text-top">clear</mat-icon>
+                    Bakgrundskontroll</p>
+                <p class="fontsize-15 color-dgray fontweight-400 mt-5 mb-0">
+                  <mat-icon *ngIf='cleanPets == 1' class="color-lgreen vertical-text-top">done</mat-icon>
+                  <mat-icon *ngIf='cleanPets != 1' class="color-lred vertical-text-top">clear</mat-icon>
+                  Husdjur</p>
+                <p class="fontsize-15 color-dgray fontweight-400 mt-5 mb-0">
+                  <mat-icon *ngIf='cleanWindow == 1' class="color-lgreen vertical-text-top">done</mat-icon>
+                  <mat-icon *ngIf='cleanWindow != 1' class="color-lred vertical-text-top">clear</mat-icon>
+                  Fönster</p>
+                <p class="fontsize-15 color-dgray fontweight-400 mt-5 mb-0">
+                  <mat-icon *ngIf='cleanIroning == 1' class="color-lgreen vertical-text-top">done</mat-icon>
+                  <mat-icon *ngIf='cleanIroning != 1' class="color-lred vertical-text-top">clear</mat-icon>
+                  Strykning</p><br>
+                  <button id="cleaners{{ cleanerid }}" (click)="selectCleaner(cleanerid)" mat-flat-button class="bg-yellow height-40 width-120">{{ btntext }} STÄDAREN</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="" fxLayout="colunm" fxFlex.gt-xs="100" fxFlex.gt-sm="72" fxFlex.gt-md="73" fxFlex.gt-lg="73" style="flex-direction: column!important;display: block;">
+      <div class="relative " style="min-width:500px;">
+        <div class="bg-screen-gray1 border-radius10 mb-40 w-100">
+          <div class="around-20">
+            <h4 class="color-dgray fontsize-24 mb-10 mt-0">Om mig:</h4>
+            <p class="color-dgray fontsize-16 mb-0 mt-0">{{ cleanAbout }}</p>
+            </div>
+        </div>
+        <div class="relative w-100">
+          <h3 class="fontsize-24 color-mgray ">Vad kunderna säger om <span style="text-transform: capitalize;">{{ cleanName }}</span></h3>
+
+          
+          
+          <div *ngFor="let rating of ratingLists" class="" style="border-bottom:1px solid rgba(92, 98, 117,.15);">
+              <div class="" fxLayout="row" fxLayout.gt-xs="row" fxLayoutAlign="space-between">
+                <div fxLayout="colunm"><P class="fontsize-16 color-dgray margin-auto fontweight-600" style="text-transform: capitalize;">{{rating.first_name}} {{rating.lname}}.</P></div>
+                <div fxLayout="colunm">
+                    <div class="star-icon-p" fxLayout.gt-xs="row">
+                        <span *ngFor="let number of [1,2,3,4,5]" >
+                            <mat-icon class="vertical-middle color-yellow" matPrefix *ngIf="number <=rating.rating" >star</mat-icon>
+                            <mat-icon class="vertical-middle" matPrefix *ngIf="number > rating.rating" >star</mat-icon>
+                          </span> 
+                        <span class="color-dgray fontsize-15 fontweight-600 display-ib ml-10">{{rating.rating}}/5.0</span>
+                    </div>
+                </div>
+              </div>
+              <p class="color-dgray fontsize-16 mt-5">{{rating.review}}</p>
+
+              <!-- <P class="color-dgray fontsize-16 mt-5">Den här personen har inga omdömen ännu.</P> -->
+          </div>
+
+          <p class="color-dgray fontsize-16 mt-5" *ngIf="ratingLists.length<=0">Den här personen har inga omdömen ännu.</p>
+  
+            
+        </div>
+      </div>
+      </div>
+
+  </div>
+</mat-dialog-content>
+<!-- <mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions> -->
+</section>

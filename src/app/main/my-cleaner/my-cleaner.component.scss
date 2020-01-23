@@ -1,0 +1,41 @@
+@import "../../../scss/_node-module-override";
+@import "../../../scss/_styles";
+@import "../../../scss/_theming";
+
+
+
+.round-icon{
+    width: 60px;
+    height:60px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: inline-block;
+    @media (max-width:992px) {
+        width:50px;
+        height:50px;
+    }
+}
+.around-19{padding:19px;}
+.uncheck-box-dash{
+    background:#F1F5F7;
+    border:1px solid #F1F5F7;
+    @media (max-width:992px) {
+        .fontsize-16{
+            font-size: 14px;
+        }
+    }
+
+}
+.my-cleaner-table-parent{
+    min-height:40vh;
+}
+@media (max-width:600px) {
+    .my-cleaner-table-parent{
+        overflow: auto;    
+        width: 100%;  
+        min-height: 100%;  
+    }
+    .my-cleaner-table{
+        width: 600px;
+    }
+}

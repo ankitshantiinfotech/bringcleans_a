@@ -1,0 +1,185 @@
+<app-after-login-header></app-after-login-header>
+<div class="account-head-top">
+  <div class="container align-center">
+    <div class="">
+      <h2 class="font-family-m fontweight-400 fontsize-30 color-white mb-11 mt-11">Kontouppgifter</h2>
+    </div>
+  </div>
+</div>
+
+<section class="account-sec-2 pt-40 pb-50">
+  <div class="container">
+    <div class="" fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+      fxLayoutAlign="space-between">
+      <div class="pl-15 pr-15" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="68" fxFlex.gt-md="68"
+        fxFlex.gt-lg="68">
+          <div class="example-form">
+          <p class="color fontsize-15 fontweight-600 border-b2 pb-10 mb-30">Personliga detaljer</p>
+          <div class="green-alert" [class.no-dis]="success">
+              <span class="fontsize-16 color-mgray fontweight-400 mb-0">{{ successMsg }}</span>
+            </div>
+            <div class="danger-alert" [class.no-dis]="error">
+              <span class="fontsize-16 color-mgray fontweight-400 mb-0">{{ errMsg }}</span>
+            </div>
+          <div fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+            fxLayoutAlign="space-between" class="">
+            <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="22" fxFlex.gt-md="22"
+              fxFlex.gt-lg="22">
+              <label class="fontsize-15 color-mgray mt-8">Förnamn<span class="color-red">*</span></label>
+            </div>
+            <div class="color-dblue input-border relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="78"
+              fxFlex.gt-md="78" fxFlex.gt-lg="78">
+              <mat-form-field appearance="outline" class="">
+                <input (keypress)='enter($event)' class="" [(ngModel)]=profile.fname matInput placeholder="">
+              </mat-form-field>
+              <span class="color-red errorVal" style="left: 12px;">{{ fnameErr }}</span>
+            </div>
+
+          </div>
+          <div fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+            fxLayoutAlign="space-between">
+            <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="22" fxFlex.gt-md="22"
+              fxFlex.gt-lg="22">
+              <label class="fontsize-15 color-mgray mt-8">Efternamn<span class="color-red">*</span></label>
+            </div>
+            <div class="color-dblue input-border relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="78"
+              fxFlex.gt-md="78" fxFlex.gt-lg="78">
+              <mat-form-field appearance="outline" class="">
+                <input (keypress)='enter($event)' class="" [(ngModel)]=profile.lname matInput placeholder="">
+              </mat-form-field>
+              <span class="color-red errorVal" style="left: 12px;">{{ lnameErr }}</span>
+            </div>
+          </div>
+          <div fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+            fxLayoutAlign="space-between">
+            <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="22" fxFlex.gt-md="22"
+              fxFlex.gt-lg="22">
+              <label class="fontsize-15 color-mgray mt-8">Mobil<span class="color-red">*</span></label>
+            </div>
+            <div class="color-dblue input-border relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="78"
+              fxFlex.gt-md="78" fxFlex.gt-lg="78">
+              <mat-form-field appearance="outline" class="">
+                <input (keypress)='enter($event)' class="" [(ngModel)]=profile.phone (keypress)="checkPhone($event)" matInput placeholder="">
+              </mat-form-field>
+              <span class="color-red errorVal" style="left: 12px;">{{ phoneErr }}</span>
+            </div>
+          </div>
+          <div fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+            fxLayoutAlign="space-between">
+            <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="22" fxFlex.gt-md="22"
+              fxFlex.gt-lg="22">
+              <label class="fontsize-15 color-mgray mt-8">Fast nummer</label>
+            </div>
+            <div class="color-dblue input-border" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="78"
+              fxFlex.gt-md="78" fxFlex.gt-lg="78">
+              <mat-form-field appearance="outline" class="">
+                <input (keypress)='enter($event)' class="" [(ngModel)]=profile.landline matInput placeholder="">
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+            fxLayoutAlign="space-between">
+            <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="22" fxFlex.gt-md="22"
+              fxFlex.gt-lg="22">
+              <label class="fontsize-15 color-mgray mt-8">E-post<span class="color-red">*</span></label>
+            </div>
+            <div class="color-dblue input-border relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="78"
+              fxFlex.gt-md="78" fxFlex.gt-lg="78">
+              <mat-form-field appearance="outline" class="">
+                <input (keypress)='enter($event)' class="" [(ngModel)]=profile.email readonly matInput placeholder="">
+              </mat-form-field>
+              <span class="color-red errorVal" style="left: 12px;">{{ emailErr }}</span>
+            </div>
+          </div>
+          <div fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+            fxLayoutAlign="space-between">
+            <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="22" fxFlex.gt-md="22"
+              fxFlex.gt-lg="22">
+              <label class="fontsize-15 color-mgray mt-8">Ditt personnummer<span class="color-red">*</span></label>
+            </div>
+            <div class="color-dblue input-border relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="78"
+              fxFlex.gt-md="78" fxFlex.gt-lg="78">
+              <mat-form-field appearance="outline" class="">
+                <input class="" [(ngModel)]=profile.pid readonly matInput placeholder="Your Personal ID Number (YYMMDD-XXXX) *">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <p class="color-mgray fontsize-15 fontweight-600 border-b2 pb-10 mt-20 mb-30">Ändra ditt lösenord</p>
+          <div fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+            fxLayoutAlign="space-between baseline">
+            <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="22" fxFlex.gt-md="22"
+              fxFlex.gt-lg="22">
+              <label class="fontsize-15 color-mgray">Nytt lösenord</label>
+            </div>
+            <div class="color-dblue input-border relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="78"
+              fxFlex.gt-md="78" fxFlex.gt-lg="78">
+              <mat-form-field appearance="outline" class="">
+                <input (keypress)='enter($event)' type="password" class="" [(ngModel)]=profile.newPass matInput placeholder="">
+              </mat-form-field>
+              <span class="color-red errorVal" style="left: 12px;">{{ newpassErr }}</span>
+            </div>
+          </div>
+          <div fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+            fxLayoutAlign="space-between baseline">
+            <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="22" fxFlex.gt-md="22"
+              fxFlex.gt-lg="22">
+              <label class="fontsize-15 color-mgray">Bekräfta nytt lösenord</label>
+            </div>
+            <div class="color-dblue input-border relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="78"
+              fxFlex.gt-md="78" fxFlex.gt-lg="78">
+              <mat-form-field appearance="outline" class="">
+                <input (keypress)='enter($event)' type="password" class="" [(ngModel)]=profile.confirmPass matInput placeholder="">
+              </mat-form-field>
+              <span class="color-red errorVal" style="left: 12px;">{{ confPassErr }}</span>
+            </div>
+          </div>
+
+          <p class="color-mgray fontsize-15 fontweight-600 border-b2 pb-10 mb-20">Kommunikationspreferenser</p>
+          <!-- <mat-checkbox class="color-mgray"><span>I want to receive the email booking reminders</span></mat-checkbox> -->
+
+          <label class="check-parent">
+            <input type="checkbox" [(ngModel)]="theCheckbox1" data-md-icheck />
+            Jag vill få påminnelser om mina bokningar via e-post
+            <span class="checkmark"></span>
+          </label>
+
+          <p class="color-mgray fontsize-15 fontweight-600 border-b2 pb-10 mb-20">Uppdatera kontoinformation</p>
+          <div fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+            fxLayoutAlign="space-between">
+            <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="22" fxFlex.gt-md="22"
+              fxFlex.gt-lg="22">
+              <label class="fontsize-15 color-mgray">Skriv ditt nuvarande lösenord</label>
+            </div>
+            <div class="color-dblue input-border relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="78"
+              fxFlex.gt-md="78" fxFlex.gt-lg="78">
+              <mat-form-field appearance="outline" class="">
+                <input (keypress)='enter($event)' type="password" class="" [(ngModel)]=profile.oldPass matInput placeholder="">
+              </mat-form-field>
+              <span class="color-red errorVal" style="left: 12px;">{{ oldpassErr }}</span>
+            </div>
+          </div>
+          <div class="align-center mb-20">
+            <button id="update" mat-flat-button class="bg-yellow color-white mt-10 mb-0" (click)="updateProfile()">Uppdatera kontoinformation</button>
+          </div>
+        </div>
+      </div>
+      <div class="" fxLayout="column" fxLayoutAlign="start end" fxFlex.gt-xs="37" fxFlex.gt-sm="35" fxFlex.gt-md="30"
+        fxFlex.gt-lg="30">
+        <div class="bg-screen-gray1 border-radius10 w-100 align-left">
+          <div class="around-30">
+            <p class="fontsize-18 color-mgray fontweight-600">Behöver du ändra dina kortuppgifter?</p>
+            <p class="color-mgray fontsize-15">Du kan uppdatera kortinformationen för det kort som vi debiterar för varje bokning.</p>
+            <div class="align-center">
+              <button mat-flat-button class="bg-blue color-white mt-10 mb-0" style="font-size: 16px;" (click)="openDialogDash2()">Uppdatera kortinformation</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--
+<app-after-login-footer></app-after-login-footer> -->

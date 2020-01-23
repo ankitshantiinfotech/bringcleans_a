@@ -1,0 +1,30 @@
+<section class="modal-sec-1 relative" style="position:relative;">
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close id="acVerifyClose"><img src="assets/images/crose-icon.png"></button>
+    </mat-dialog-actions>
+<mat-dialog-content class="pt-10" style="width:400px;">
+
+  <p class="font-family-m color-dgray fontsize-14 align-center mt-0 mb-20" *ngIf="type == 'deny'">    
+Är du säker på att du vill avslå den här begäran? Du kommer inte att kunna acceptera det senare om du väljer att avbryta det.
+  </p>
+  <p class="font-family-m color-dgray fontsize-14 align-center mt-0 mb-20" *ngIf="type == 'confirm'">
+    Härligt! Är du 100% säker på att du kan genomföra uppdraget åt kunden vid angiven tidpunkt? Om du inte skulle genomföra uppdraget så debiteras du nämligen en straffavgift enligt villkoren. Vill du acceptera det här uppdraget nu?
+  </p>
+  <div class="text-center mt-4" fxLayout="row" fxLayoutAlign="center center">
+    <div class="" fxLayout="column">
+        <button mat-button mat-dialog-close id="closepop" class="bg-blue color-white height-40 width-100 m-2">NEJ</button>
+    </div>
+
+    <div class="" fxLayout="column" *ngIf="type == 'confirm'">
+        <button mat-button id="confYes" cdkFocusInitial (click)="confirmBooking(bookId, requestid)" class="bg-blue color-white height-40 m-2"> JA</button>
+    </div>
+    <div class="" fxLayout="column" id="denyYes" (click)="denyBooking(bookId, requestid)" *ngIf="type == 'deny'">
+      <button mat-button cdkFocusInitial class="bg-blue color-white height-40 m-2"> JA</button>
+    </div>
+
+  </div>
+</mat-dialog-content>
+<!-- <mat-dialog-actions align="end">
+
+</mat-dialog-actions> -->
+</section>

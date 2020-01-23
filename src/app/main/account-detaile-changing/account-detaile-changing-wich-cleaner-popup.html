@@ -1,0 +1,33 @@
+<section class="modal-sec-1 relative" style="position:relative;">
+        <mat-dialog-actions align="end">
+          <button mat-button mat-dialog-close><img src="assets/images/crose-icon.png"></button>
+        </mat-dialog-actions> 
+    <mat-dialog-content class="pt-10" style="width:600px;">
+      <h3 class="fontsize-30 font-family-m fontwight-400 mt-0 mb-30 color-lgray align-center">Which cleaner would you like to book?</h3>
+      <form>
+      <div class="align-center" fxLayout.gt-xs="row" fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayoutAlign="">
+        <div class="color-dblue input-border" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-xs="50" fxFlex.gt-sm="50" fxFlex.gt-md="50" fxFlex.gt-lg="50">
+              <div class="select-cleaner">
+                <img src="assets/images/round-img1.png" class="width60"/>
+                <a href="#" class="color-dblue fontsize-16 fontwight600">Michelle</a>
+                <span class="fontsize-14 color-mgray">from 125 kr/h</span>
+              </div>
+          </div>
+          <div class="color-dblue input-border" fxLayout="row" fxLayout="column" fxLayoutAlign="start end" fxFlex.gt-xs="50"  fxFlex.gt-sm="50" fxFlex.gt-md="50" fxFlex.gt-lg="50">
+                <div class="select-cleaner">
+                    <img src="assets/images/round-img4.png" class="width60"/>
+                    <a href="#" class="color-dblue fontsize-16 fontwight600">A new cleaner</a>
+                </div>
+          </div>
+        </div>
+      <div class="align-center">        
+          <button mat-flat-button class="bg-bray color-white mt-10 mb-0" >close</button>
+      </div>
+      </form>
+    </mat-dialog-content>
+<!-- <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions> -->
+</section>
+        

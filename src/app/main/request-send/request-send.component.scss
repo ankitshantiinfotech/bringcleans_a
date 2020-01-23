@@ -1,0 +1,54 @@
+@import "../../../scss/_node-module-override";
+@import "../../../scss/_styles";
+@import "../../../scss/_theming";
+
+
+.rs-sec-3{
+    .rs-inner-bg-block{
+        background: #F1F5F7;
+        width: 870px;
+        border-radius: 10px;
+        padding: 30px 20px;
+        margin: 0 auto;
+        @media (max-width:992px) {
+            width: 100%;
+        }
+        @media (max-width:767px) {
+            width: 90%;
+        }
+    }
+
+    .calen_bg_img{
+        background: url(/assets/images/cal_bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        width: 120px;
+        height: 155px;
+    }
+    @media (max-width:500px) {
+        .bg-yellow.color-white.mt-10.mb-10{
+            width:230px !important;
+        }
+    }
+    
+
+}
+
+.home-sec-2{
+    padding: 70px 0 10px 0; 
+    .hs2-map-img1{
+        width: 70px;
+        min-width: 70px;
+        height: 70px;
+        line-height: 70px;
+        @media (max-width:960px) {
+            margin-bottom:0rem !important;
+            width: 60px;
+            min-width: 60px;
+            height: 60px;
+            line-height: 60x;
+        }
+        
+    }
+}

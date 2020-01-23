@@ -1,0 +1,38 @@
+@import "../../../scss/_node-module-override";
+@import "../../../scss/_styles";
+@import "../../../scss/_theming";
+
+
+
+.footer-login-bg{
+    background: #fff;
+    padding: 30px 16px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    @media (max-width:1800px) {
+        padding:15px 16px;
+    }
+    @media (max-width:960px) {
+        font-size: 13px;
+    }
+    @media (max-width:767px) {
+        padding: 5px ;
+        
+        span,a{
+            font-size: 10px;
+        }
+        .mt-20.mb-20.border-b1{
+            margin-bottom:0rem !important;
+        }
+        span.color-lbbcbdb{
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+    @media (max-width:600px) {
+        .widthn-100{
+            width:auto;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+<div class="footer-bg">
+    <footer>
+            <div class="container footer-new-container" fxLayout="column" fxLayoutAlign="space-between space-between">
+                <div class="mb-0" fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayout.gt-lg="row" fxLayoutAlign="space-between center">
+                    <div fxLayout="row" fxLayoutAlign="space-between">
+                        <a href="/" style="margin:auto;"><img src="assets/images/logo.png" class=""></a>
+                    </div>
+                    <div fxLayout="column" fxLayoutAlign="start center" class="ml-100">
+                        <div fxLayout="column" fxLayoutAlign="start center" >
+                            <p class="mt-0 mb-15 color-white font-size-16 text-center">Prenumerera på vårt nyhetsbrev</p>
+                            <div fxLayout="row" class="relative mb-0">
+                                <div class="input-border lineheigt35 bg-white lineheigt35">
+                                        <mat-form-field appearance="outline" class="width500">
+                                                <input matInput placeholder="E-postadress" [(ngModel)]="subscribeMail">
+                                                <mat-icon matPrefix class="mr-5"> email</mat-icon>
+                                                <span _ngcontent-xrh-c16="" class="errorVal" style="color:#FFF;">{{ subscribeMailErr }}</span>
+                                                <span _ngcontent-xrh-c16="" class="successVal" style="color:#FFF;">{{ subscribeMailSuccess }}</span>
+                                        </mat-form-field>
+
+                                </div>
+
+                                <button mat-flat-button class="btn-group1-btn lineheigt35" (click)="submitSubscribe();" >PRENUMERERA</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutAlign="start center">
+                        <div fxLayout="column" fxLayoutAlign="start center">
+                            <button routerLink="/reg-cleaner" mat-button class="border-white lineheigt35 mt-15">REGISTRERA DIG SOM STÄDARE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-0 mt-0" fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="center center">
+                        <a routerLink="/" mat-button class="color-white">HEM</a>
+                        <a routerLink="/how-it-works" mat-button class="color-white">HUR DET FUNGERAR</a>
+                        <a routerLink="/about-page" mat-button class="color-white">OM OSS</a>
+                        <a routerLink="/pricing2-page" mat-button class="color-white">PRISSÄTTNING</a>
+                        <a routerLink="/faq-category-page" mat-button class="color-white">HJÄLP</a>
+                </div>
+                <div class="mt-20 mb-20 border-b1" fxLayout="row" fxLayoutAlign="center center"></div>
+                <div class="mt-15 mb-5 align-center" fxLayout="column" fxLayout.gt-xs="row" fxLayout.gt-sm="row" fxLayoutAlign="space-between center">
+                    <span class="color-lbbcbdb">© {{ today | date : "yyy" }}  Bring Clean Sweden AB. Alla rättigheter förbehållna.</span>
+                    <div class="" fxLayout="row">
+                        <a routerLink="/terms-page" class="color-lbbcbdb display-b mr-20" fxLayout="column">Villkor &amp; </a>  <a routerLink="/cookies-page" class="color-lbbcbdb display-b mr-20" fxLayout="column">Cookies </a>
+                        <a routerLink="/privacy-page" class="color-lbbcbdb">Integritetspolicy</a>
+                    </div>
+                </div>
+            </div>
+    </footer>
+</div>

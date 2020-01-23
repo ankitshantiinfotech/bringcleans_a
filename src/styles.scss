@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import "scss/styles-override";
+html, body { height: 100%; }
+body { margin: 0; font-family: "Open Sans", sans-serif !important; overflow-x: hidden !important;overflow-y: auto !important;}
+.display-none{ display: none !important;}
+.capitalize{text-transform: capitalize;}
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';

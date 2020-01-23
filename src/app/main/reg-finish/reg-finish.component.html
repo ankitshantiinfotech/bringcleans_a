@@ -1,0 +1,69 @@
+<app-front-end-logout></app-front-end-logout>
+<!-- * * * * * * * * * * * Start Header * * * * * * * * * * * -->
+
+<div class="login-sec-1" fxLayout="row">
+  <img src="assets/images/top_blue_circle_full.png" class="top_blue_circle_full-img" alt="">
+  <img src="assets/images/top_blue_circle_half.png" class="top_blue_circle_half-img" alt="">
+  <div class="container">
+    <!-- <form #regFinForm="ngForm"> -->
+    <div class="mb-20 mt-20" fxLayout="column" fxLayoutAlign.gt-xs="center center" fxLayoutAlign="center center"
+      fxFlex.gt-xs="100" fxFlex.gt-sm="100" fxFlex.gt-md="100">
+      <div class="card-box" fxLayout="column">
+        <div class="" fxLayout="column" fxLayoutAlign="start center" fxFlex="100">
+          <h3 class="fontsize-36 font-family-m color-lgray align-center mt-0 mb-25" fxFlex="100">Fullfölj din registrering </h3>
+        </div>
+        <div class="color-dblue" fxLayout="column" fxLayoutAlign="start start" fxFlex="100">
+          <div class="relative" style="width:100%">
+            <ng-select2 [data]="genderdata" [(ngModel)]=profiler.gender [placeholder]="'Kön'" [options]="options" (valueChanged)="RemoveErr('gender')">
+            </ng-select2>
+            <span class="errorVal fontsize-12" style="left: 20px; bottom: -15px;">{{ genderErr }}</span>
+          </div>
+          <mat-form-field appearance="outline" class="login-input input-border mb-20 mt-20">
+            <input [(ngModel)]=profiler.company (keypress)='enter($event)' matInput placeholder="Företagsnamn *" (keyup)="RemoveErr('company')">
+            <span class="errorVal fontsize-12">{{ companyErr }}</span>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="login-input input-border mb-20">
+            <input [(ngModel)]=profiler.orgnumber maxlength="10" (keypress)='enter($event)' matInput placeholder="Organisationsnummer *" (keyup)="RemoveErr('organization')">
+            <span class="errorVal fontsize-12">{{ organizationErr }}</span>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="login-input input-border mb-20">
+            <input name="pid" maxlength="11" [(ngModel)]=profiler.pidnumber (change)="checkformat()" (keypress)="adddash()" (keypress)='enter($event)' matInput placeholder="Personnummer *" (keyup)="RemoveErr('pid')">
+              <!-- Your Personal ID Number (YYMMDD-XXXX) -->
+            <span class="errorVal fontsize-12">{{ pidErr }}</span>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="login-input input-border mb-20">
+            <input name="address" [(ngModel)]=profiler.addressinp (keypress)='enter($event)' matInput placeholder="Gatuadress *" (keyup)="RemoveErr('address')">
+            <span class="errorVal fontsize-12">{{ addressErr }}</span>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="login-input input-border mb-20">
+            <input name="additional" (keypress)='enter($event)' [(ngModel)]=profiler.additionalInp matInput placeholder="Övrig info (frivilligt)" >
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="login-input input-border mb-20">
+            <input name="zip" (keypress)='enter($event)' [(ngModel)]=profiler.postal matInput placeholder="Postnummer *" (keyup)="RemoveErr('zip')">
+            <span class="errorVal fontsize-12">{{ zipErr }}</span>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="login-input input-border mb-20">
+            <input name="city" (keypress)='enter($event)' [(ngModel)]=profiler.city matInput placeholder="Postort *" (keyup)="RemoveErr('city')">
+            <span class="errorVal fontsize-12">{{ cityErr }}</span>
+          </mat-form-field>
+        </div>
+        <div class="mb-20 relative" fxLayout="column" fxLayoutAlign="start start">
+          <span class="errorVal fontsize-12">{{ error }}</span>
+        </div>
+        <div class="mb-20 ml-auto" fxLayout="column" fxLayoutAlign="center center" fxFlex="100" fxLayout="100">
+          <button id="reg" (click)="regDetails()" mat-flat-button
+            class="bg-yellow color-white mt-0 mb-0 width300">REGISTRERA</button>
+        </div>
+
+      </div>
+    </div>
+    <!-- </form> -->
+  </div>
+</div>
+
+
+
+<!-- * * * * * * * * * * * Start Footer * * * * * * * * * * * -->
+
+
+<app-before-login-footer></app-before-login-footer>

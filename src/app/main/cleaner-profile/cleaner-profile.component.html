@@ -1,0 +1,99 @@
+<app-after-login-header></app-after-login-header>
+<div class="relative">
+    <div class="account-head-top">
+        <div class="container">
+            <div class="pl-15 pr-15" fxLayout="column" fxLayout.gt-xs="row" fxLayout.gt-sm="row" fxLayoutAlign="space-between" >
+                <div class="ml-130" fxLayout="column" >
+                    <h2 class="font-family-m fontweight-400 fontsize-30 color-white mb-11 mt-11"><span style="text-transform: capitalize;">{{ myCleaner.first_name + " " + myCleaner.last_name }}</span></h2>
+                </div>
+                <div class="" fxLayout="column" fxLayoutAlign="center flex-end">
+                    <p class="fontsize-15 color-white mb-0 mt-0">Har du några frågor om din bokning? Fråga <span style="text-transform: capitalize;">{{ myCleaner.first_name + " " + myCleaner.last_name }}</span> direkt.</p>
+                    <span class="fontsize-15 fontweight-600 color-white">ÖPPNA CHATTEN</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container relative">
+        <div class="profile-img">
+            <img src="{{ baseurl + 'uploads/profile_pic/' + myCleaner.profile_pic }}" onerror="this.onerror=null;this.src='assets/images/round-img4.png'" alt="">
+
+        </div>
+        <div class="pl-15 pr-15 pt-10" fxLayout="row" fxLayout.gt-xs="row" fxLayout.gt-sm="row" fxLayoutAlign="space-between" >
+            <div class="ml-130" fxLayout="column" >
+                <span class="fontsize-14 color-mgray fontweight-600">Erfarenhet:  {{ myCleaner.cleaning_done }} uppdrag</span>
+            </div>
+            <div class="" fxLayout="column" fxLayoutAlign="center flex-end">
+                <div class="star-icon-p" >
+                  <span *ngFor="let number of [1,2,3,4,5]" >
+                    <mat-icon class="vertical-middle color-yellow" matPrefix *ngIf="number <=myCleaner.rating" >star</mat-icon>
+                    <mat-icon class="vertical-middle" matPrefix *ngIf="number > myCleaner.rating" >star</mat-icon>
+                  </span>
+                  <span class="color-mgray fontsize-15 fontweight-600 display-ib pl-10">{{ myCleaner.rating }}/5.0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="profile-sec-1">
+    <div class="container">
+        <div class="pl-15 pr-15 ">
+            <div class="border-b2 height-50vh m-border-n-table">
+            <table mat-table [dataSource]="bookings" class="" style="width:100%;">
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef style="color: #878DA0;text-transform: capitalize;font-size: 15px;font-weight: 600;"> Dina kommande bokningar </th>
+                  <td mat-cell *matCellDef="let element" style="color: #878DA0;text-transform: capitalize;font-size: 15px;font-weight: 600;">  {{ element.starttime | date :  "EEEE, MMMM d, hh:mm" }}, {{ element.hours }} timmar  </td>
+                </ng-container>
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="symbol">
+                  <th mat-header-cell *matHeaderCellDef style="text-align: right;color: #0BABFE;text-transform: capitalize;font-size: 15px;font-weight: 600;">  </th>
+                  <td mat-cell *matCellDef="let element" (click)="viewBooking(element.id, element.booking_id)" style="text-align: right;color: #0BABFE;text-transform: capitalize;font-size: 15px;font-weight: 600;cursor: pointer;"> Se </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+              <mat-paginator [pageSizeOptions]="[10,20,50,100,500]" showFirstLastButtons></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="profile-sec-1">
+    <div class="container ">
+        <div class="pl-15 pr-15">
+            <div class="" fxLayout="row">
+                <div class="" fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
+                    <p class="fontsize-18 color-mgray mt-60 mb-20">Jag tror inte att jag behöver <span style="text-transform: capitalize;">{{ myCleaner.first_name + " " + myCleaner.last_name }}</span> längre, <span class="color-red">Avsluta alla mina kommande bokningar!</span></p>
+                </div>
+            </div>
+            <div class="" fxLayout="column" fxLayout.gt-xs="row" fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayoutAlign="space-between top" >
+                <div class="align-center mt-30" fxLayout="column" fxFlex="100" fxLayoutAlign="space-between center"  fxFlex.gt.xs="100" fxFlex.gt.sm="30" fxFlex.gt-md="25" fxFlex.gt-lg="20">
+                    <img src="../../../assets/images/rs-pro-img-1.png" class="pro-img">
+                    <p class="fontsize-16 color-mgray">jag är inte nöjd med min städare, vad ska jag göra?</p>
+                    <a routerLink="/faq-page/bookingmanagement" class="color-dblue fontsize-16">få reda på mer</a>
+                </div>
+                <div class="align-center mt-30" fxLayout="column" fxFlex="100" fxLayoutAlign="space-between center"  fxFlex.gt.xs="100" fxFlex.gt.sm="30" fxFlex.gt-md="25" fxFlex.gt-lg="20">
+                        <img src="../../../assets/images/rs-pro-img-4.png" class="pro-img">
+                        <p class="fontsize-16 color-mgray">Jag går på semester, hur avbryter jag bokningar?
+                                </p>
+                        <a routerLink="/faq-page/bookingmanagement" class="color-dblue fontsize-16">få reda på mer</a>
+                </div>
+                <div class="align-center mt-30" fxLayout="column" fxFlex="100" fxLayoutAlign="space-between center"  fxFlex.gt.xs="100" fxFlex.gt.sm="30" fxFlex.gt-md="25" fxFlex.gt-lg="20">
+                        <img src="../../../assets/images/rs-pro-img-5.png" class="pro-img">
+                        <p class="fontsize-16 color-mgray">Jag behöver ändra tidpunkten för mina städningar; kan jag göra det?
+                                </p>
+                        <a routerLink="/faq-page/bookingmanagement" class="color-dblue fontsize-16">få reda på mer</a>
+                </div>
+            </div>
+
+            <div class="uncheck-box-dash w-100 pr-20 pl-20 pt-35 pb-35 border-radius10 mb-10 mt-60" fxLayout.gt-xs="row" fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayoutAlign="center">
+                <div class="" fxLayout.gt-xs="row" fxLayoutAlign="center" fxFlex="100" fxFlex.gt-xs="100" fxFlex.gt-sm="100" fxFlex.gt-md="100">
+                    <p class="fontsize-18 color-mgray mb-0 mt-0">Hitta svar på dessa och andra vanliga kundfrågor i  <span style="cursor: pointer" routerLink="/faq-category-page" class="color-dblue">vårt omfattande hjälpavsnitt</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<app-after-login-footer></app-after-login-footer>

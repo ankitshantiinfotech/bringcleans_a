@@ -1,0 +1,10 @@
+@import "../../../scss/_node-module-override";
+@import "../../../scss/_styles";
+@import "../../../scss/_theming";
+
+
+@media (max-width:767px){ 
+    .logo{
+        width: 115px;
+    }
+}

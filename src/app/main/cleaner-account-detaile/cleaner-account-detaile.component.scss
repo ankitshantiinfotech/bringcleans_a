@@ -1,0 +1,106 @@
+@import "../../../scss/_node-module-override";
+@import "../../../scss/_styles";
+@import "../../../scss/_theming";
+.no-dis{
+  display: none !important;
+}
+.img-box{
+    background:rgb(241, 245, 247);
+    border-radius:10px;
+    width: 250px;
+    height: 150px;
+    text-align:center;
+    position: relative;
+    overflow: hidden;
+}
+.img-box img{
+    width:100%;
+    height:100%;
+    object-fit: scale-down;
+}
+.img-box .crouse-img-icon{
+    position:absolute;
+    top:10px;
+    right:10px;
+}
+.yallow-alert{
+    max-width: 730px;
+    width: 100%;
+    padding: 9px 30px !important;
+    background: #fff1d8;
+    border-radius: 20px;
+    @media (max-width:767px){
+        width:85%;
+        padding: 9px 15px !important;
+        margin: 0 auto;
+        .fontsize-16{
+            font-size: 14px;
+        }
+    }
+}
+.green-alert{
+  max-width: 730px;
+  margin-top:10px;
+  width: 100%;
+  padding: 9px 30px !important;
+  color: #155724;
+  background-color: #d4edda;
+  border:1px solid #1557243b;
+  border-radius: 20px;
+  @media (max-width:767px){
+    width:85%;
+    padding: 9px 15px !important;
+    .fontsize-16{
+      font-size: 14px;
+    }
+  }
+  span{
+    color:#155724 !important;
+  }
+}
+.danger-alert{
+max-width: 730px;
+margin-top:10px;
+width: 100%;
+padding: 9px 30px !important;
+background: #f8d7da;
+border:1px solid #721c243b;
+border-radius: 20px;
+  @media (max-width:767px){
+    width:85%;
+    padding: 9px 15px !important;
+    .fontsize-16{
+      font-size: 14px;
+    }
+  }
+  span{
+    color:#721c24 !important;
+  }
+}
+.no-dis{
+  display: none !important;
+}
+@media (max-width:1200px){
+    .account-sec-4.pt-30.pb-50.pl-15.pr-15{
+        padding-left:0rem;
+        padding-right:0rem;
+    }
+    .bg-screen-gray1.border-radius10.w-100.align-left{
+        margin-top: 20px;
+    }
+}
+@media (max-width:767px){
+    .img-box {
+        width: 140px;
+        height: 130px;
+    }
+    .upload-img.mr-30{
+        margin-right: 10px;
+    }
+}
+
+.z-99{
+  z-index: 99 !important;
+  cursor: pointer;
+}
+

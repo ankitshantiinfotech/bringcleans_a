@@ -1,0 +1,250 @@
+<app-after-login-header></app-after-login-header>
+<div class="account-head-top">
+  <div class="container align-center">
+    <div class="">
+      <h2 class="font-family-m fontweight-400 fontsize-30 color-white mb-11 mt-11">KONTOINSTÄLLNINGAR</h2>
+    </div>
+  </div>
+</div>
+<section class="account-sec-4 pt-30 pb-50 pl-15 pr-15">
+  <div class="container">
+    <div class="danger-alert" [class.no-dis]="workingUpdate">
+        <span class="fontsize-16 color-mgray fontweight-400 mb-0"> Glöm inte att lägga till dina arbetstider.</span>
+      </div>
+    <div class="green-alert" [class.no-dis]="success">
+      <span class="fontsize-16 color-mgray fontweight-400 mb-0">{{ successMsg }}</span>
+    </div>
+    <div class="danger-alert" [class.no-dis]="error">
+      <span class="fontsize-16 color-mgray fontweight-400 mb-0">{{ errMsg }}</span>
+    </div>
+    <div class="danger-alert" [class.no-dis]="uploadocs">
+      <span class="fontsize-16 color-mgray fontweight-400 mb-0">
+        INVÄNTAR GODKÄNNANDE - VÄNLIGEN LADDA UPP NÖDVÄNDIGA DOKUMENT FÖR ATT ADMIN SKA KUNNA AKTIVERA DITT KONTO.
+      </span></div>
+    <div class="pt-30" fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="column" fxLayout.gt-md="row"
+      fxLayoutAlign="space-between">
+      <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-sm="70" fxFlex.gt-md="65" fxFlex.gt-lg="65">
+        <div class="w-100">
+          <p class="color-mgray fontsize-15 fontweight-600 border-b2 pb-10">Karta</p>
+          <div class="mb-20" fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row" fxLayout.gt-lg="row">
+            <div class="" fxFlex="100" fxFlex.gt-sm="44" fxFlex.gt-md="44" fxFlex.gt-lg="44">
+              <label class="fontsize-15 color-mgray display-b mb-10">Ange din adress som du vill utgå ifrån</label>
+              <mat-form-field class="w-95 mb-20 input-border" appearance="outline">
+                <!-- <input ngx-google-places-autocomplete  #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" (keypress)='enter($event)' [(ngModel)]=profiledata.address matInput placeholder="Enter Post Code" /> -->
+                <input ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" (keypress)='enter($event)' [(ngModel)]=profiledata.address matInput placeholder="Ange din adress">
+              </mat-form-field>
+            </div>
+            <div class="" fxFlex="100" fxFlex.gt-sm="44" fxFlex.gt-md="44" fxFlex.gt-lg="44">
+              <label class="fontsize-15 color-mgray display-b mb-10">Ange radie i km där du vill motta förfrågningar.</label>
+              <mat-form-field class="w-95 mb-20 input-border" appearance="outline">
+                <input (keypress)='enter($event)' [(ngModel)]=profiledata.radius matInput placeholder="Enter radius (Miles)">
+              </mat-form-field>
+            </div>
+          </div>
+          <p class="fontsize-14 color-mgray mb-10">Vi kommer att skicka dig städförfrågningar inom X km radie från punkten som du väljer på kartan</p>
+          <!-- <a href="https://maps.google.com/?q={{ profiledata.address }}" target="_blank" class="color-dblue fontweight-600 fontsize-14 mt-0 mb-0">Din adress där du vill utgå ifrån på Google Maps</a> -->
+          <p class="fontsize-15 color-mgray mt-10 mb-0">Vänligen <a href="mailto:info@bringclean.se" class="color-dblue">kontakta oss </a>om du behöver hjälp.</p>
+          <p class="color-mgray fontsize-15 fontweight-600 border-b2 pb-10 mt-30">Ladda upp nödvändiga dokument</p>
+          <p class="color-mgray fontsize-14">Här laddar du upp de dokument som BringClean behöver för att kunna genomföra transaktioner till dig. ID handling ska vara en svensk, giltig ID-handling.Bankkontoutdrag ska visa kontonummer och ditt namn/företagsnamn. Adressbevis ska visa ditt namn och din adress och kan vara t.ex. en elräkning, mobilabonnemang eller liknande.</p>
+          <div class="relative" fxLayout="row">
+            <div class="upload-img mr-30">
+              <div class="img-box">
+                <img src="{{ frontSrc }}" alt="" class="">
+                <input *ngIf="profiledata.admin_approval == 0" type="file" name="image" (change)="idfront($event)" />
+                <a *ngIf="profiledata.admin_approval == 0" (click)="frontRem()" class="crouse-img-icon z-99">
+                  <img src="assets/images/crouse-img-red-icon.png">
+                </a>
+              </div>
+              <span class="errorVal relative" style="left:0; bottom:0;">{{ invalidfront }}</span>
+              <p class="color-mgray fontsize-14 align-center mt-5 mb-0">ID handling framsida</p>
+            </div>
+            <div class="upload-img mr-30">
+              <div class="img-box">
+                <img src="{{ backSrc }}" alt="" class="">
+                <input *ngIf="profiledata.admin_approval == 0" type="file" name="image" (change)="idback($event)" />
+                <a *ngIf="profiledata.admin_approval == 0" (click)="backRem()" class="crouse-img-icon z-99">
+                  <img src="assets/images/crouse-img-red-icon.png">
+                </a>
+              </div>
+              <span class="errorVal relative" style="left:0; bottom:0;">{{ invalidback }}</span>
+              <p class="color-mgray fontsize-14 align-center mt-5 mb-0">ID handling baksida</p>
+            </div>
+          </div>
+
+          <div class="mt-20" fxLayout="row">
+            <div class="upload-img mr-30">
+              <div class="img-box">
+                <img src="{{ accFrontSrc }}" alt="" class="">
+                <input *ngIf="profiledata.admin_approval == 0" type="file" name="image" (change)="accFront($event)" />
+                <a *ngIf="profiledata.admin_approval == 0" (click)="accfrontRem()" class="crouse-img-icon z-99">
+                  <img src="assets/images/crouse-img-red-icon.png">
+                </a>
+              </div>
+              <span class="errorVal relative" style="left:0; bottom:0;">{{ invalidacfront }}</span>
+              <p class="color-mgray fontsize-14 align-center mt-5 mb-0"> Bankkontoutdrag</p>
+            </div>
+            <div class="upload-img mr-30">
+              <div class="img-box">
+                <img src="{{ resFrontSrc }}" alt="" class="">
+                <input *ngIf="profiledata.admin_approval == 0" type="file" name="image" (change)="resFront($event)" />
+                <a *ngIf="profiledata.admin_approval == 0" (click)="resfrontRem()" class="crouse-img-icon z-99">
+                  <img src="assets/images/crouse-img-red-icon.png">
+                </a>
+              </div>
+              <span class="errorVal relative" style="left:0; bottom:0;">{{ invalidresfront }}</span>
+              <p class="color-mgray fontsize-14 align-center mt-5 mb-0">Adressbevis</p>
+            </div>
+            <!-- <div class="upload-img mr-30">
+              <div class="img-box">
+                <img src="{{ accBackSrc }}" alt="" class="">
+                <input type="file" name="image" (change)="accBack($event)" />
+                <a (click)="accbackRem()" class="crouse-img-icon z-99">
+                  <img src="assets/images/crouse-img-red-icon.png">
+                </a>
+              </div>
+              <span class="errorVal relative" style="left:0; bottom:0;">{{ invalidacback }}</span>
+              <p class="color-mgray fontsize-14 align-center mt-5 mb-0">Bank Account Back</p>
+            </div> -->
+          </div>
+
+          <div class="mt-20" fxLayout="row">
+
+            <!-- <div class="upload-img mr-30">
+              <div class="img-box">
+                <img src="{{ resBackSrc }}" alt="" class="">
+                <input type="file" name="image" (change)="resBack($event)" />
+                <a (click)="resbackRem()" class="crouse-img-icon z-99">
+                  <img src="assets/images/crouse-img-red-icon.png">
+                </a>
+              </div>
+              <span class="errorVal relative" style="left:0; bottom:0;">{{ invalidresback }}</span>
+              <p class="color-mgray fontsize-14 align-center mt-5 mb-0">Residence Proof Front</p>
+            </div> -->
+          </div>
+
+
+          <p class="color-mgray fontsize-15 fontweight-600 border-b2 pb-10 mt-50 mb-30">Om mig</p>
+          <div fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+            fxLayoutAlign="space-between">
+
+            <div class="color-dblue input-border relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-xs="78"
+              fxFlex.gt-sm="78" fxFlex.gt-md="78" fxFlex.gt-lg="78">
+              <mat-form-field appearance="outline" class="">
+                <textarea (keypress)='enter($event)' (keypress)='countchar()' maxlength="300" [(ngModel)]=profiledata.aboutme class="" matInput placeholder="Ange en beskrivande text om dig själv. Denna text blir synlig i din profil." style="height: 60px;overflow: hidden;"></textarea>
+              </mat-form-field>
+              <span class="color-red errorVal" style="left: 12px;">{{ erraboutmeMsg }}</span>
+              <span class="" style="position: absolute; bottom: -20px; right: 20px;">{{ count }} / 300</span>
+            </div>
+          </div>
+          <p class="color-mgray fontsize-15 fontweight-600 border-b2 pb-10 mt-50 mb-30">Ändra ditt lösenord</p>
+          <div fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+            fxLayoutAlign="space-between">
+            <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-xs="22" fxFlex.gt-sm="22"
+              fxFlex.gt-md="22" fxFlex.gt-lg="22">
+              <label class="fontsize-15 color-mgray mt-10">Nytt lösenord</label>
+            </div>
+            <div class="color-dblue input-border relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-xs="78"
+              fxFlex.gt-sm="78" fxFlex.gt-md="78" fxFlex.gt-lg="78">
+              <mat-form-field appearance="outline" class="">
+                <input (keypress)='enter($event)' type="password" [(ngModel)]=profiledata.newPass class="" matInput placeholder="">
+              </mat-form-field>
+              <span class="color-red errorVal" style="left: 12px;">{{ errpassMsg }}</span>
+            </div>
+          </div>
+          <div fxLayout="column" fxLayout.gt-xs="column" fxLayout.gt-sm="row" fxLayout.gt-md="row"
+            fxLayoutAlign="space-between">
+            <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-xs="22" fxFlex.gt-sm="22"
+              fxFlex.gt-md="22" fxFlex.gt-lg="22">
+              <label class="fontsize-15 color-mgray mt-10">Bekräfta nytt lösenord</label>
+            </div>
+            <div class="color-dblue input-border relative" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-xs="78"
+              fxFlex.gt-sm="78" fxFlex.gt-md="78" fxFlex.gt-lg="78">
+              <mat-form-field appearance="outline" class="">
+                <input (keypress)='enter($event)' type="password" [(ngModel)]=profiledata.confNewPass class="" matInput placeholder="">
+              </mat-form-field>
+              <span class="color-red errorVal" style="left: 12px;">{{ errpass2Msg }}</span>
+            </div>
+          </div>
+          <div class="align-left">
+            <button (click)="updateDet()" id="update" mat-flat-button class="bg-yellow color-white mt-10 mb-0">UPPDATERA</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="" fxLayout="column" fxLayoutAlign="start start" fxFlex.gt-xs="37" fxFlex.gt-sm="35" fxFlex.gt-md="30"
+        fxFlex.gt-lg="30">
+        <div class="bg-screen-gray1 border-radius10 w-100 align-left">
+          <div class="around-30">
+            <p class="fontsize-18 color-mgray fontweight-600 mt-0">Arbetstider</p>
+
+            <p class="color-mgray fontsize-15">Du bestämmer själv vilka tider på dygnet du vill vara tillgänglig för att ta emot förfrågningar. När du ändrar dina tider så gäller de omgående för NYA bokningar men pågående uppdrag påverkas inte.
+            </p>
+            <!-- <p class="color-mgray fontsize-15">If you need to change or cancel your customer bookigns please speak to
+              your customer and let us know <a href="#" class="color-dblue"> at email.</a>
+            </p> -->
+            <p class="color-red errorVal"></p>
+            <div class="align-center " style="position: relative;">
+              <button (click)='working(profiledata.admin_approval)' mat-flat-button class="bg-blue color-white mt-10 mb-0">Ändra arbetstider</button>
+              <span class="color-red errorVal" style="margin:0 auto;left:0rem;right:0rem;">{{ AdminApprovalErr }}</span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="bg-screen-gray1 border-radius10 w-100 align-left mt-30">
+          <div class="around-30">
+            <p class="fontsize-18 color-mgray fontweight-600 mt-0">Accepterar du även kunder som:</p>
+            <div class="normal-text-check">
+              <label class="check-parent">
+                <input type="checkbox" [(ngModel)]="theCheckbox1" data-md-icheck/>
+                Har husdjur
+                <span class="checkmark"></span>
+              </label>
+              <label class="check-parent">
+                <input type="checkbox" [(ngModel)]="theCheckbox2" data-md-icheck />
+                Vill ha strykning
+                <span class="checkmark"></span>
+              </label>
+              <label class="check-parent">
+                  <input type="checkbox" [(ngModel)]="theCheckbox4" data-md-icheck />
+                  Vill ha fönsterputsning
+                  <span class="checkmark"></span>
+                </label>
+
+              <!-- <label class="check-parent">
+                <input type="checkbox" [(ngModel)]="theCheckbox3" data-md-icheck (change)="toggleVisibility($event)" />
+                I would be available at this time on another day during the week (Mon-Fri)
+                <span class="checkmark"></span>
+              </label> -->
+
+            </div>
+            <div class="align-center" style="position: relative;">
+              <button (click)="additionalDetails(profiledata.admin_approval)" mat-flat-button class="bg-blue color-white mt-10 mb-0">UPPDATERA</button>
+              <span class="color-red errorVal" style="margin:0 auto;left:0rem;right:0rem;">{{ AdminApprovalErr1 }}</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="bg-screen-gray1 border-radius10 w-100 align-left mt-30">
+          <div class="around-30">
+            <p class="fontsize-18 color-mgray fontweight-600 mt-0"> Uppdatera dina personliga inställningar</p>
+
+            <p class="color-mgray fontsize-15">
+
+            </p>
+
+            <div class="align-center" style="position: relative;">
+              <a (click)="updateDetailsCleaner(profiledata.admin_approval)"  mat-flat-button class="bg-blue color-white mt-10 mb-0">UPPDATERA</a>
+              <span class="color-red errorVal" style="margin:0 auto;left:0rem;right:0rem;">{{ AdminApprovalErr2 }}</span>
+              <!-- update-detail-cleaner -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-after-login-footer></app-after-login-footer>

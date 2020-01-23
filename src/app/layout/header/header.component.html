@@ -1,0 +1,53 @@
+<mat-toolbar class="navbar-class">
+    <div class="container" fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <a href="/"><img src="assets/images/logo.png" class="logo"></a>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div fxLayout="column" fxLayoutAlign="start center" [class.display-none]="logged" class="small-d-n">
+                <button id="reg" (click)="cleanerPage()" mat-button class="border-white lineheigt35"  >REGISTRERA DIG SOM STÄDARE</button>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="start center" [class.display-none]="logged" class="small-d-n">
+                <button (click)="login()" mat-button class="color-white fontsize-14 ">LOGGA IN </button>
+            </div>
+            <div class="large-d-n" *ngIf="!logedin" >
+                <button mat-button (click)="detailsbm2d()" class="color-white fontsize-14"><mat-icon matPrefix class="mr-5 fontsize-19">dehaze</mat-icon> </button>
+                <div class="mobile-click-toggle"  *ngIf=!show>
+                    <div fxLayout="column" fxLayoutAlign="start center" [class.display-none]="logged">
+                        <button (click)="cleanerPage()" mat-button class="border-white lineheigt35"  >REGISTRERA DIG SOM STÄDARE</button>
+                    </div>
+                    <div fxLayout="column" fxLayoutAlign="start center" [class.display-none]="logged">
+                        <button (click)="login()" mat-button class="color-white fontsize-14 ">LOGGA IN </button>
+                    </div>
+                </div>
+            </div>
+
+            <div fxLayout="column" fxLayoutAlign="start center" *ngIf="logedin" >
+                    <div *ngIf="menuopen" class="home-menu-blue" fxLayout="column" fxLayoutAlign="center center" >
+                        <img (click)="closemenu()" src="assets/images/close-menu-white.png" alt="" class="close-menu-white" >
+                        <!-- <div class="">
+                            <button (click)="cleanerPage()" mat-button class="border-white large-d-n lineheigt35">REGISTRERA DIG SOM STÄDARE</button>
+                        </div> -->
+                        <a routerLink="/" class="hmb-menu-a fontsize-36 fontweight-700 color-white text-uppercase">HEM</a>
+                        <a routerLink="/welcomeback" class="hmb-menu-a fontsize-36 fontweight-700 color-white text-uppercase">Mina bokningar</a>
+                        <a routerLink="/how-it-works" class="hmb-menu-a fontsize-36 fontweight-700 color-white text-uppercase">Hur det fungerar
+                        </a>
+                        <a routerLink="/pricing2-page" class="hmb-menu-a fontsize-36 fontweight-700 color-white text-uppercase">PRISSÄTTNING
+                        </a>
+                        <a routerLink="/about-page" class="hmb-menu-a fontsize-36 fontweight-700 color-white text-uppercase">OM OSS
+                        </a>
+                        <a routerLink="" class="hmb-menu-a fontsize-36 fontweight-700 color-white text-uppercase">MINA BETALNINGAR</a>
+                        <a routerLink="/faq-category-page" class="hmb-menu-a fontsize-36 fontweight-700 color-white text-uppercase">hjälp</a>
+                        <a (click)="myaccount()" class="hmb-menu-a fontsize-36 fontweight-700 color-white text-uppercase">Mina detaljer</a>
+                        <a (click)="logout()" class="hmb-menu-a fontsize-36 fontweight-700 color-white text-uppercase" >Logga ut</a>
+                    </div>
+                <button [class.display-none]="unlogged" mat-button class="color-white fontsize-14" (click)="openmenu()"><mat-icon matPrefix class="mr-5 fontsize-19">dehaze</mat-icon> MENY </button>
+            </div>
+        </div>
+    </div>
+</mat-toolbar>
+
+
+
+
+
